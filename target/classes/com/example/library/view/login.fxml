@@ -10,14 +10,14 @@
 
 <AnchorPane fx:id="loginAnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library.controller.LoginController">
    <children>
-      <Group layoutX="346.0" layoutY="214.0">
+      <Group layoutX="376.0" layoutY="171.0" AnchorPane.bottomAnchor="293.0" AnchorPane.leftAnchor="375.248046875" AnchorPane.rightAnchor="349.751953125" AnchorPane.topAnchor="171.0">
          <children>
             <TextField fx:id="idMemberTextField" layoutX="4.0" layoutY="73.0" />
             <TextField fx:id="passwordTextField" layoutX="4.0" layoutY="155.0" />
             <Label layoutX="4.0" layoutY="44.0" text="ID" />
             <Label layoutX="4.0" layoutY="119.0" text="Password" />
             <Button fx:id="loginButton" layoutY="211.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="171.0" text="Login" />
-            <Label layoutX="48.0" text="My Library">
+            <Label layoutX="17.0" text="My Library">
                <font>
                   <Font size="27.0" />
                </font>

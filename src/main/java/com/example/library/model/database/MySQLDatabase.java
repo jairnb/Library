@@ -9,8 +9,8 @@ import java.util.logging.Logger;
 
 public class MySQLDatabase implements Database{
     private final String PASSWORD = Main.dotenv.get("DATABASE_PASSWORD");
-    private final String DB_NAME = Main.dotenv.get("DATABASE_USER");;
-    private final String USER_NAME = Main.dotenv.get("DATABASE_NAME");
+    private final String DB_NAME = Main.dotenv.get("DATABASE_NAME");
+    private final String USER_NAME = Main.dotenv.get("DATABASE_USER");
 
     private Connection connection;
 

@@ -8,7 +8,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.sql.Connection;
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import io.github.cdimascio.dotenv.Dotenv;
+
+import javax.xml.transform.Result;
 
 public class Main extends Application {
     public static Dotenv dotenv = Dotenv.load();
@@ -26,8 +32,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-
-        connection.
-       launch();
+        launch();
     }
 }
