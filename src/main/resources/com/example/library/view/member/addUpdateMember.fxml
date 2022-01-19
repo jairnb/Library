@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.library.controller.MemberController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <Pane prefHeight="434.0" prefWidth="694.0">
+            <children>
+                <TextField fx:id="lastName" layoutX="172.0" layoutY="136.0" prefHeight="26.0" prefWidth="360.0" promptText="Last Name" />
+                <TextField fx:id="firstName" layoutX="172.0" layoutY="97.0" prefHeight="26.0" prefWidth="360.0" promptText="First Name" />
+                <TextField fx:id="phoneNumber" layoutX="172.0" layoutY="176.0" prefHeight="26.0" prefWidth="360.0" promptText="Phone Number: *Phone number must contain only numbers" />
+                <TextField fx:id="street" layoutX="171.0" layoutY="300.0" prefHeight="26.0" prefWidth="360.0" promptText="Street" />
+                <TextField fx:id="zip" layoutX="172.0" layoutY="343.0" prefHeight="26.0" prefWidth="194.0" promptText="Enter 5 digits only zip number" />
+                <TextField fx:id="memberId" layoutX="82.0" layoutY="47.0" prefHeight="26.0" prefWidth="75.0" promptText="memberId" visible="false" />
+
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="14.0" prefHeight="22.0" prefWidth="600.0" text="Add Member" textAlignment="CENTER">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="state" layoutX="171.0" layoutY="217.0" prefHeight="26.0" prefWidth="360.0" promptText="State" />
+                <TextField fx:id="city" layoutX="171.0" layoutY="256.0" prefHeight="26.0" prefWidth="360.0" promptText="City" />
+            </children>
+        </Pane>
+        <Pane layoutX="14.0" layoutY="411.0" prefHeight="110.0" prefWidth="670.0">
+            <children>
+                <Button layoutX="275.0" layoutY="43.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" text="Save" />
+                <Button layoutX="408.0" layoutY="43.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="113.0" text="Cancel" />
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
