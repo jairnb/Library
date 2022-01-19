@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cfb8f22-7c05-4f9a-b06b-bb64816e1f5a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Library.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/database/MySQLDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/database/MySQLDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/model/database/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/model/database/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/model/database/DatabaseFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/model/database/DatabaseFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/model/database/MysqlDatabase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/view/login.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="4cfb8f22-7c05-4f9a-b06b-bb64816e1f5a" name="Changes" comment="Database setup" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,8 +119,16 @@
       <workItem from="1642614431021" duration="1385000" />
       <workItem from="1642616133998" duration="1064000" />
       <workItem from="1642619724334" duration="32000" />
-      <workItem from="1642620376309" duration="5253000" />
+      <workItem from="1642620376309" duration="5963000" />
     </task>
+    <task id="LOCAL-00001" summary="Database setup">
+      <created>1642626038976</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1642626038976</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +144,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Database setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database setup" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
