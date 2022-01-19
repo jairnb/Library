@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cfb8f22-7c05-4f9a-b06b-bb64816e1f5a" name="Changes" comment="Database setup" />
+    <list default="true" id="4cfb8f22-7c05-4f9a-b06b-bb64816e1f5a" name="Changes" comment="Database sql">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/BookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Author.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/book/add.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/book/edit.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/book/index.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/AdministratorDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/PersonDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/library/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/view/login.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +32,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="JavaFXApplication" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -51,7 +70,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/example/library/jars/mysql-connector-java-8.0.27.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/example/library" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -63,6 +82,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/library" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/library/model/database" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/library/jars" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -119,7 +140,8 @@
       <workItem from="1642614431021" duration="1385000" />
       <workItem from="1642616133998" duration="1064000" />
       <workItem from="1642619724334" duration="32000" />
-      <workItem from="1642620376309" duration="5963000" />
+      <workItem from="1642620376309" duration="6614000" />
+      <workItem from="1642629042107" duration="7065000" />
     </task>
     <task id="LOCAL-00001" summary="Database setup">
       <created>1642626038976</created>
@@ -128,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642626038976</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Database sql">
+      <created>1642627097170</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1642627097170</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +176,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Database setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database setup" />
+    <MESSAGE value="Database sql" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database sql" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
