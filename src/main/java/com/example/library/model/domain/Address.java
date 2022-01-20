@@ -14,6 +14,14 @@ public class Address {
         this.setPostalCode(postalCode);
     }
 
+    public Address(int id,String street,String city,String state,String postalCode){
+        this.setStreet(street);
+        this.setCity(city);
+        this.setState(state);
+        this.setPostalCode(postalCode);
+        this.id = id;
+    }
+
     public int getId(){
         return id;
     }

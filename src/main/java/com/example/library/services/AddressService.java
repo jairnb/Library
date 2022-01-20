@@ -1,6 +1,7 @@
 package com.example.library.services;
 
 import com.example.library.StaticHelpers;
+import com.example.library.model.dao.AddressDAO;
 import com.example.library.model.database.MySQLDatabase;
 import com.example.library.model.domain.Address;
 import com.example.library.model.domain.Member;
@@ -58,13 +59,13 @@ public class AddressService {
 
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-//                address = new Address(
-//                        id,
-//                        rs.getString("street"),
-//                        rs.getString("city"),
-//                        rs.getString("state"),
-//                        rs.getString("zip")
-//                );
+                address = new Address(
+                        id,
+                        rs.getString("street"),
+                        rs.getString("city"),
+                        rs.getString("state"),
+                        rs.getString("zip")
+                );
 
             }
 

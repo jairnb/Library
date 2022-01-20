@@ -34,7 +34,7 @@ public class HomeController implements Initializable {
     }
 
     public void members() throws IOException {
-        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/com/example/library/view/member/index.fxml"));
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/com/example/library/view/member/memberList.fxml"));
         contentAnchorPane.getChildren().setAll(a);
     }
 }

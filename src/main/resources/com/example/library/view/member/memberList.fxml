@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.library.controller.MemberListController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <children>
+        <Pane layoutX="3.0" layoutY="6.0" prefHeight="137.0" prefWidth="700.0">
+            <children>
+                <Button fx:id="checkOutEntriesButton" layoutX="324.0" layoutY="94.0" mnemonicParsing="false" text="Checkout entries" />
+                <Button fx:id="editButton" layoutX="570.0" layoutY="94.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Edit" />
+                <Button fx:id="addNewButton" layoutX="451.0" layoutY="94.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Add new" />
+                <Label layoutX="321.0" layoutY="10.0" text="Member" textAlignment="CENTER">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <TableView fx:id="memberGrid" layoutX="14.0" layoutY="142.0" prefHeight="267.0" prefWidth="650.0">
+            <columns>
+                <TableColumn prefWidth="52.6666841506958" text="Checkbox" />
+                <TableColumn fx:id="firstName" prefWidth="221.99996185302734" text="First Name" />
+                <TableColumn fx:id="lastName" prefWidth="160.0" text="Last Name" />
+                <TableColumn fx:id="phoneNumber" prefWidth="257.0" text="Phone Number" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
