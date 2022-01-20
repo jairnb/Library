@@ -31,6 +31,9 @@ public class MemberController implements Initializable {
     private TextField memberId;
 
     @FXML
+    private  Label title;
+
+    @FXML
     private TextField city;
 
     @FXML
@@ -57,25 +60,81 @@ public class MemberController implements Initializable {
     @FXML
     private Button cancelButton;
 
+    MemberService memberService;
+    Member member;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        try {
+            init();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         saveButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                MemberService memberService = new MemberService();
+                memberService = new MemberService();
                 try {
-                    memberService.addMember(new Member(0,
-                            firstName.getText(),
-                            lastName.getText(),
-                            phoneNumber.getText(),
-                            new Address(0,street.getText(),city.getText(),state.getText(),zip.getText()),
-                            "",new Role(2, RoleType.MEMEBER.toString())
-                            ));
+                    if(memberId.getText().trim().equals("") ){
+                        memberService.addMember(new Member(0,
+                                firstName.getText(),
+                                lastName.getText(),
+                                phoneNumber.getText(),
+                                new Address(0,street.getText(),city.getText(),state.getText(),zip.getText()),
+                                "",new Role(2, RoleType.MEMEBER.toString())
+                        ));
+                    }else{
+                        int id = Integer.parseInt(memberId.getText().trim());
+                        memberService.updateMember(new Member(
+                                id,
+                                firstName.getText(),
+                                lastName.getText(),
+                                phoneNumber.getText(),
+                                new Address(
+                                        member.getAddress().getId(),
+                                        street.getText(),
+                                        city.getText(),
+                                        state.getText(),
+                                        zip.getText()),
+                                "",new Role(2, RoleType.MEMEBER.toString())
+                        ));
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
+    }
+
+    private void init() throws Exception {
+        memberId.setText("1");
+
+        if(memberId.getText().trim().equals("")){
+            title.setText("Add Member");
+        }else{
+            title.setText("Edit Member");
+            memberService = new MemberService();
+            int id = Integer.parseInt(memberId.getText().trim());
+            member = memberService.getMemberById(id);
+            if(member != null){
+                firstName.setText(member.getFirstName());
+                lastName.setText(member.getLastName());
+                phoneNumber.setText(member.getPhoneNumber());
+                if(member.getAddress() != null){
+                    Address ad = member.getAddress();
+                    state.setText(ad.getState());
+                    city.setText(ad.getCity());
+                    street.setText(ad.getStreet());
+                    zip.setText(ad.getPostalCode());
+                }
+            }
+        }
+    }
+
+    private void clearTextControl(){
+
     }
 }

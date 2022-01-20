@@ -1,15 +1,16 @@
 package com.example.library.model.domain;
 
-import java.util.List;
-
 public class Member extends Person{
     private String password;
-    private List<Role> roleList;
+    private Role role;
 
-    public Member(String firstName, String lastName, String phoneNumber, Address address, String password, List<Role> roleList) {
-        super(firstName, lastName, phoneNumber, address);
+
+
+    public Member(int id, String firstName, String lastName, String phoneNumber,
+                  Address address, String password, Role role) {
+        super(id, firstName, lastName, phoneNumber, address);
         this.password = password;
-        this.roleList = roleList;
+        this.role = role;
     }
 
     public String getPassword() {
@@ -20,11 +21,11 @@ public class Member extends Person{
         this.password = password;
     }
 
-    public List<Role> getRoleList() {
-        return roleList;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoleList(List<Role> roleList) {
-        this.roleList = roleList;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
