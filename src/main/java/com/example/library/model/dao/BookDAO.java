@@ -40,7 +40,9 @@ public class BookDAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                bookList.add(new Book(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), AuthorDAO.getById(rs.getInt(5))));
+                Book b = new Book(rs.getString(1), rs.getString(2), rs.getString(4), rs.getString(5), AuthorDAO.getById(rs.getInt(5)));
+                b.setId(rs.getInt(1));
+                bookList.add(b);
             }
         } catch (SQLException e) {
             e.printStackTrace();

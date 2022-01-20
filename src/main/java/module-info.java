@@ -14,6 +14,9 @@ module com.example.library {
     opens com.example.library to javafx.fxml;
     exports com.example.library;
     exports com.example.library.controller;
+    exports com.example.library.model.domain;
+    exports com.example.library.model.dao;
+    exports com.example.library.model.database;
     opens com.example.library.controller to javafx.fxml;
 
 }

@@ -6,14 +6,21 @@ import com.example.library.model.dao.BookDAO;
 import com.example.library.model.domain.Address;
 import com.example.library.model.domain.Author;
 import com.example.library.model.domain.Book;
+import com.example.library.services.BookService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -22,52 +29,58 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class BookController implements Initializable {
-    @FXML private AnchorPane bookAnchorPane;
-    @FXML private TextField city;
-    @FXML private TextField credential;
-    @FXML private TextField maxDayTextField;
-    @FXML private TextField firstName;
-    @FXML private TextField isbnTextField;
-    @FXML private TextField lastName;
-    @FXML private TextField phoneNumber;
-    @FXML private TextField shortBio;
-    @FXML private TextField state;
-    @FXML private TextField street;
-    @FXML private TextField titleTextField;
-    @FXML private TextField zip;
-    @FXML private Button addButton;
+    @FXML private TableView<Book> bookTable;
     @FXML private TableColumn<Book, String> availability;
     @FXML private TableColumn<Book, String> isbn;
     @FXML private TableColumn<Book, String> max_day;
     @FXML private TableColumn<Book, String> title;
-    @FXML private Button cancel;
-    @FXML private Button saveId;
-
+    private ObservableList<Book> bookObservableList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        BookDAO.selectAll();
+        loadTable();
+    }
+
+    public void loadTable(){
+        title.setCellValueFactory(new PropertyValueFactory<>("title"));
+        isbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
+        availability.setCellValueFactory(new PropertyValueFactory<>("availability"));
+        max_day.setCellValueFactory(new PropertyValueFactory<>("maxDate"));
+
+        bookObservableList = FXCollections.observableArrayList(BookDAO.selectAll());
+        bookTable.setItems(bookObservableList);
     }
 
     public void addBook() throws IOException {
-        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/com/example/library/view/book/add.fxml"));
-        bookAnchorPane.getChildren().setAll(a);
+        Book book = new Book();
+        boolean btn = addBookForm(book);
+        if(btn){
+            BookService.addBook(book);
+            loadTable();
+        }
     }
 
-    public void addInDatabase(){
-        Address address  = new Address(street.getText(), city.getText(), state.getText(), zip.getText());
-        Address addressId = AddressDAO.insert(address);
 
-        Author author = new Author(firstName.getText(), lastName.getText(), phoneNumber.getText(), addressId, credential.getText(), shortBio.getText());
-        Author authorResult = AuthorDAO.insert(author, addressId);
 
-        Book book = new Book(titleTextField.getText(), isbnTextField.getText(), "True", maxDayTextField.getText(), authorResult);
-        boolean result = BookDAO.insert(book);
+    public boolean addBookForm(Book book) throws IOException{
+        FXMLLoader loader= new FXMLLoader();
+        loader.setLocation(AddBookController.class.getResource("/com/example/library/view/book/add.fxml"));
+        AnchorPane pane = (AnchorPane) loader.load();
 
-        if (result){
-            System.out.println("ok");
-        }else {
-            System.out.println("Not ok");
-        }
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Add Book");
+        dialogStage.setResizable(false);
+
+        Scene scene = new Scene(pane);
+        dialogStage.setScene(scene);
+
+        AddBookController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        controller.setBook(book);
+
+
+        dialogStage.setAlwaysOnTop(true);
+        dialogStage.showAndWait();
+        return controller.isConfirm();
     }
 }
