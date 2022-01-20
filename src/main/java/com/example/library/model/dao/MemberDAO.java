@@ -2,16 +2,15 @@ package com.example.library.model.dao;
 
 import com.example.library.StaticHelpers;
 import com.example.library.model.database.MySQLDatabase;
-import com.example.library.model.domain.Address;
-import com.example.library.model.domain.Member;
-import com.example.library.model.domain.Role;
-import com.example.library.model.domain.RoleType;
+import com.example.library.model.domain.*;
 import com.example.library.services.AddressService;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -98,6 +97,33 @@ public class MemberDAO {
         }catch (Exception ex){
             Logger.getLogger(MySQLDatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public List<Member> getAllMembers(){
+        List<Member> memberList = new ArrayList<>();
+
+        String sql = "SELECT * FROM member";
+
+        try {
+            PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Member member = new Member(
+                        rs.getInt("id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getString("phone_number"),
+                        null,
+                        "",
+                        null);
+
+                memberList.add(member);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return memberList;
     }
 
 }
