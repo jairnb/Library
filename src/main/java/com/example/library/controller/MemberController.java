@@ -3,16 +3,14 @@ package com.example.library.controller;
 import com.example.library.model.domain.*;
 import com.example.library.services.MemberService;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
@@ -60,6 +58,18 @@ public class MemberController implements Initializable {
     private TextField zip;
 
     @FXML
+    private ComboBox<String> role;
+
+    @FXML
+    public PasswordField passwordField;
+
+    @FXML
+    public PasswordField confirmPassword;
+
+    @FXML
+    public TextField userId;
+
+    @FXML
     private Button saveButton;
 
     @FXML
@@ -80,16 +90,25 @@ public class MemberController implements Initializable {
             public void handle(MouseEvent mouseEvent) {
                 memberService = new MemberService();
                 try {
+                    String roleSelect = role.getSelectionModel().getSelectedItem();
+
                     if(memberId.getText().trim().equals("") ){
                         if(!validateInput()){
                             return;
                         }
+
+                        if(!validateUser()){
+                            return;
+                        }
+
                         memberService.addMember(new Member(0,
                                 firstName.getText(),
                                 lastName.getText(),
                                 phoneNumber.getText(),
                                 new Address(0,street.getText(),city.getText(),state.getText(),zip.getText()),
-                                "",new Role(2, RoleType.MEMEBER.toString())
+                                passwordField.getText(),
+                                roleSelect.equals("[select]") ? "" : roleSelect,
+                                userId.getText()
                         ));
                     }else{
                         int id = Integer.parseInt(memberId.getText().trim());
@@ -104,7 +123,9 @@ public class MemberController implements Initializable {
                                         city.getText(),
                                         state.getText(),
                                         zip.getText()),
-                                "",new Role(2, RoleType.MEMEBER.toString())
+                                passwordField.getText(),
+                                roleSelect.equals("[select]") ? "" : roleSelect,
+                                userId.getText()
                         ));
                     }
                     dialogStage.close();
@@ -118,13 +139,17 @@ public class MemberController implements Initializable {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 clearTextControl();
+                dialogStage.close();
             }
         });
     }
 
     public void init() throws Exception {
-//        memberId.setText("1");
-        System.out.println("init");
+        String roles[] =
+                { "[select]",RoleType.ADMIN.name() , RoleType.LIBRARIAN.name(), RoleType.BOTH.name()};
+
+        role.setItems(FXCollections.observableArrayList(roles));
+
         if(memberId.getText().trim().equals("")){
             title.setText("Add Member");
         }else{
@@ -143,6 +168,10 @@ public class MemberController implements Initializable {
                     street.setText(ad.getStreet());
                     zip.setText(ad.getPostalCode());
                 }
+                passwordField.setText(member.getPassword());
+                role.getSelectionModel().select(member.getRole());
+                userId.setText(member.getUserId());
+
             }
         }
     }
@@ -179,6 +208,39 @@ public class MemberController implements Initializable {
         }
 
 
+        return  true;
+    }
+
+    private Boolean validateUser() throws Exception {
+        String roleSelect = role.getSelectionModel().getSelectedItem();
+        memberService = new MemberService();
+
+        if(!(roleSelect.equals(RoleType.ADMIN) || roleSelect.equals(RoleType.LIBRARIAN))){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            if(userId.getText().equals("")){
+                alert.setContentText("User id is required");
+                alert.showAndWait();
+                return false;
+            }
+
+            if(memberService.isUserIdExisted(userId.getText())){
+                alert.setContentText("User id is already existed");
+                alert.showAndWait();
+                return false;
+            }
+
+            if(passwordField.getText().equals("")){
+                alert.setContentText("Password is required");
+                alert.showAndWait();
+                return false;
+            }
+
+            if(!passwordField.getText().equals(confirmPassword.getText())){
+                alert.setContentText("Password are not match");
+                alert.showAndWait();
+                return false;
+            }
+        }
         return  true;
     }
 

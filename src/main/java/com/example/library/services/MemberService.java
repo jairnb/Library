@@ -35,5 +35,10 @@ public class MemberService {
         return dao.getAllMembers();
     }
 
+    public Boolean isUserIdExisted(String userId) throws Exception {
+        MemberDAO dao= new MemberDAO();
+        return dao.isUserIdExisted(userId);
+    }
+
 
 }

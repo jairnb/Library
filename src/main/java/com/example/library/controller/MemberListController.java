@@ -80,7 +80,6 @@ public class MemberListController implements Initializable {
         editButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-
                 openDialog(false);
             }
         });
@@ -95,9 +94,6 @@ public class MemberListController implements Initializable {
         });
     }
 
-    private void onGridRowSelect() throws Exception{
-
-    }
 
     private void openDialog(boolean isNew){
         try{
@@ -118,13 +114,16 @@ public class MemberListController implements Initializable {
             }else{
                 dialogStage.setTitle("Edit Book");
                 TableView.TableViewSelectionModel<Member> selectionModel = memberGrid.getSelectionModel();
-                controller.setMemberId(selectionModel.getSelectedItem().getId());
+                if(selectionModel.getSelectedItem() != null)
+                    controller.setMemberId(selectionModel.getSelectedItem().getId());
+                else
+                    return;
             }
 
             controller.setDialogStage(dialogStage);
             controller.init();
 
-            dialogStage.setAlwaysOnTop(true);
+//            dialogStage.setAlwaysOnTop(true);
             dialogStage.showAndWait();
 
         }catch (Exception e){
