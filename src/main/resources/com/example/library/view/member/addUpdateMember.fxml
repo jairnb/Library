@@ -18,6 +18,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
+            fx:id="memberAnchorPane"
             fx:controller="com.example.library.controller.MemberController"
             prefHeight="400.0" prefWidth="600.0">
     <children>
@@ -44,8 +45,8 @@
         </Pane>
         <Pane layoutX="14.0" layoutY="411.0" prefHeight="110.0" prefWidth="670.0">
             <children>
-                <Button layoutX="275.0" layoutY="43.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" text="Save" />
-                <Button layoutX="408.0" layoutY="43.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="113.0" text="Cancel" />
+                <Button fx:id="saveButton" layoutX="275.0" layoutY="43.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" text="Save" />
+                <Button fx:id="cancelButton" layoutX="408.0" layoutY="43.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="113.0" text="Cancel" />
             </children>
         </Pane>
     </children>
