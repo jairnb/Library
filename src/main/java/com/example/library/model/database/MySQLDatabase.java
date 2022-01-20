@@ -1,6 +1,7 @@
 package com.example.library.model.database;
 
-import com.example.library.Main;
+import com.example.library.StaticHelpers;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -8,9 +9,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MySQLDatabase implements Database{
-    private final String PASSWORD = Main.dotenv.get("DATABASE_PASSWORD");
-    private final String DB_NAME = Main.dotenv.get("DATABASE_NAME");
-    private final String USER_NAME = Main.dotenv.get("DATABASE_USER");
+    private final String PASSWORD = StaticHelpers.dotenv.get("DATABASE_PASSWORD");
+    private final String DB_NAME = StaticHelpers.dotenv.get("DATABASE_NAME");
+    private final String USER_NAME = StaticHelpers.dotenv.get("DATABASE_USER");
 
     private Connection connection;
 

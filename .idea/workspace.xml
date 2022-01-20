@@ -4,25 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cfb8f22-7c05-4f9a-b06b-bb64816e1f5a" name="Changes" comment="Database sql">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/BookController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Author.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/book/add.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/book/edit.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/book/index.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/home.fxml" afterDir="false" />
+    <list default="true" id="4cfb8f22-7c05-4f9a-b06b-bb64816e1f5a" name="Changes" comment="Book add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/AdministratorDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/PersonDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/library/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/view/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/library/view/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/home.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +126,7 @@
       <workItem from="1642616133998" duration="1064000" />
       <workItem from="1642619724334" duration="32000" />
       <workItem from="1642620376309" duration="6614000" />
-      <workItem from="1642629042107" duration="7065000" />
+      <workItem from="1642629042107" duration="7456000" />
     </task>
     <task id="LOCAL-00001" summary="Database setup">
       <created>1642626038976</created>
@@ -157,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642627097170</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Book add">
+      <created>1642636277256</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1642636277257</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +169,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Database setup" />
     <MESSAGE value="Database sql" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database sql" />
+    <MESSAGE value="Book add" />
+    <option name="LAST_COMMIT_MESSAGE" value="Book add" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
