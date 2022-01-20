@@ -8,7 +8,8 @@ public class Member extends Person{
 
     public Member(int id, String firstName, String lastName, String phoneNumber,
                   Address address, String password, Role role) {
-        super(id, firstName, lastName, phoneNumber, address);
+        super( firstName, lastName, phoneNumber, address);
+//        super(id, firstName, lastName, phoneNumber, address);
         this.password = password;
         this.role = role;
     }

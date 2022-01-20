@@ -16,7 +16,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class BookController implements Initializable {
@@ -38,11 +40,13 @@ public class BookController implements Initializable {
     @FXML private TableColumn<Book, String> isbn;
     @FXML private TableColumn<Book, String> max_day;
     @FXML private TableColumn<Book, String> title;
+    @FXML private Button cancel;
+    @FXML private Button saveId;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        BookDAO.selectAll();
     }
 
     public void addBook() throws IOException {
@@ -55,13 +59,15 @@ public class BookController implements Initializable {
         Address addressId = AddressDAO.insert(address);
 
         Author author = new Author(firstName.getText(), lastName.getText(), phoneNumber.getText(), addressId, credential.getText(), shortBio.getText());
-        int authorId = AuthorDAO.insert(author);
+        Author authorResult = AuthorDAO.insert(author, addressId);
 
-        Book book = new Book(titleTextField.getText(), isbnTextField.getText(), "True", maxDayTextField.getText(), authorId);
+        Book book = new Book(titleTextField.getText(), isbnTextField.getText(), "True", maxDayTextField.getText(), authorResult);
         boolean result = BookDAO.insert(book);
 
-//        if (result){
-//
-//        }
+        if (result){
+            System.out.println("ok");
+        }else {
+            System.out.println("Not ok");
+        }
     }
 }

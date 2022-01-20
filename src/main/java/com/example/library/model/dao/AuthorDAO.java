@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 public class AuthorDAO {
 
-    public static int insert(Author author){
+    public static Author insert(Author author, Address address){
         String sql = "INSERT INTO author(credential, shortBio, first_name, last_name, phone_number, adress_id) VALUES(?,?,?,?,?,?)";
         try{
             PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
@@ -26,20 +26,39 @@ public class AuthorDAO {
         }catch(SQLException ex){
             Logger.getLogger(AddressDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return selectLastId();
+        return selectLastId(address);
     }
 
-    private static int selectLastId(){
+    private static Author selectLastId(Address address){
         String sql = "SELECT * FROM author ORDER BY idAuthor DESC LIMIT 1";
         try{
             PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             if(rs.next()){
-                return rs.getInt(1);
+                Author a = new Author(rs.getString(4), rs.getString(5), rs.getString(6), address, rs.getString(2), rs.getString(3));
+                a.setId(rs.getInt(1));
+                return a;
             }
         }catch(SQLException ex){
             ex.printStackTrace();
         }
-        return -1;
+        return null;
+    }
+
+    public static Author getById(int id){
+        String sql = "SELECT * FROM author where idAuthor=?";
+
+        try{
+            PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
+            stmt.setInt(1, 1);
+
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                return new Author(rs.getString(4), rs.getString(5), rs.getString(6), AddressDAO.getById(rs.getInt(7)), rs.getString(2), rs.getString(3));
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return null;
     }
 }

@@ -20,8 +20,8 @@
       <TextField fx:id="city" layoutX="91.0" layoutY="332.0" promptText="City" />
       <TextField fx:id="state" layoutX="322.0" layoutY="332.0" promptText="State" />
       <TextField fx:id="zip" layoutX="91.0" layoutY="385.0" promptText="ZIP" />
-      <Button layoutX="522.0" layoutY="409.0" mnemonicParsing="false" onAction="#addInDatabase" text="Save" />
-      <Button layoutX="430.0" layoutY="409.0" mnemonicParsing="false" text="Cancel" />
+      <Button fx:id="saveId" layoutX="522.0" layoutY="409.0" mnemonicParsing="false" onAction="#addInDatabase" text="Save" />
+      <Button fx:id="cancel" layoutX="430.0" layoutY="409.0" mnemonicParsing="false" text="Cancel" />
       <Label layoutX="229.0" layoutY="168.0" text="Author Information" />
       <Separator layoutX="91.0" layoutY="158.0" prefHeight="0.0" prefWidth="551.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>

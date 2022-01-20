@@ -4,25 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cfb8f22-7c05-4f9a-b06b-bb64816e1f5a" name="Changes" comment="Members index">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/AddressDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/AuthorDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/BookDAO.java" afterDir="false" />
+    <list default="true" id="4cfb8f22-7c05-4f9a-b06b-bb64816e1f5a" name="Changes" comment="Book index">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/AddressDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/AddressDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/AuthorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/AuthorDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/BookDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/services/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/services/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/services/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/services/AddressService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/library/view/book/add.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/book/add.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/library/view/book/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/book/index.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/library/view/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/library/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/view/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -142,7 +135,7 @@
       <workItem from="1642619724334" duration="32000" />
       <workItem from="1642620376309" duration="6614000" />
       <workItem from="1642629042107" duration="7456000" />
-      <workItem from="1642643825388" duration="12710000" />
+      <workItem from="1642643825388" duration="18260000" />
     </task>
     <task id="LOCAL-00001" summary="Database setup">
       <created>1642626038976</created>
@@ -186,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642646713722</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Book index">
+      <created>1642657046565</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1642657046565</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +210,8 @@
     <MESSAGE value="Static Helpers" />
     <MESSAGE value="Menus" />
     <MESSAGE value="Members index" />
-    <option name="LAST_COMMIT_MESSAGE" value="Members index" />
+    <MESSAGE value="Book index" />
+    <option name="LAST_COMMIT_MESSAGE" value="Book index" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

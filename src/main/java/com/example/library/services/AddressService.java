@@ -58,13 +58,13 @@ public class AddressService {
 
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                address = new Address(
-                        id,
-                        rs.getString("street"),
-                        rs.getString("city"),
-                        rs.getString("state"),
-                        rs.getString("zip")
-                );
+//                address = new Address(
+//                        id,
+//                        rs.getString("street"),
+//                        rs.getString("city"),
+//                        rs.getString("state"),
+//                        rs.getString("zip")
+//                );
 
             }
 

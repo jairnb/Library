@@ -8,14 +8,14 @@ public class Book {
     private String isbn;
     private String availability;
     private String maxDate;
-    private int author_id;
+    private Author author;
 
-    public Book(String title, String isbn, String availability, String maxDate, int author_id) {
+    public Book(String title, String isbn, String availability, String maxDate, Author author) {
         this.title = title;
         this.isbn = isbn;
         this.availability = availability;
         this.maxDate = maxDate;
-        this.author_id = author_id;
+        this.author = author;
     }
 
     public int getId() {
@@ -58,11 +58,11 @@ public class Book {
         this.maxDate = maxDate;
     }
 
-    public int getAuthor_id() {
-        return author_id;
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setAuthor_id(int author_id) {
-        this.author_id = author_id;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 }

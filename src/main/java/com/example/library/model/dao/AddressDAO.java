@@ -2,6 +2,7 @@ package com.example.library.model.dao;
 
 import com.example.library.StaticHelpers;
 import com.example.library.model.domain.Address;
+import com.example.library.model.domain.Author;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,10 +24,10 @@ public class AddressDAO {
         }catch(SQLException ex){
             Logger.getLogger(AddressDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return selectLastId();
+        return selectLast();
     }
 
-    private static Address selectLastId(){
+    private static Address selectLast(){
         String sql = "SELECT * FROM adress ORDER BY ID DESC LIMIT 1";
         try{
             PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
@@ -36,6 +37,23 @@ public class AddressDAO {
                Address a = new Address(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
                a.setId(rs.getInt(1));
                return  a;
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    public static Address getById(int id){
+        String sql = "SELECT * FROM adress where id=?";
+
+        try{
+            PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
+            stmt.setInt(1, 1);
+
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                return new Address(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
             }
         }catch(SQLException ex){
             ex.printStackTrace();

@@ -75,36 +75,36 @@ public class MemberController implements Initializable {
         saveButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                memberService = new MemberService();
-                try {
-                    if(memberId.getText().trim().equals("") ){
-                        memberService.addMember(new Member(0,
-                                firstName.getText(),
-                                lastName.getText(),
-                                phoneNumber.getText(),
-                                new Address(0,street.getText(),city.getText(),state.getText(),zip.getText()),
-                                "",new Role(2, RoleType.MEMEBER.toString())
-                        ));
-                    }else{
-                        int id = Integer.parseInt(memberId.getText().trim());
-                        memberService.updateMember(new Member(
-                                id,
-                                firstName.getText(),
-                                lastName.getText(),
-                                phoneNumber.getText(),
-                                new Address(
-                                        member.getAddress().getId(),
-                                        street.getText(),
-                                        city.getText(),
-                                        state.getText(),
-                                        zip.getText()),
-                                "",new Role(2, RoleType.MEMEBER.toString())
-                        ));
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+//                memberService = new MemberService();
+//                try {
+//                    if(memberId.getText().trim().equals("") ){
+//                        memberService.addMember(new Member(0,
+//                                firstName.getText(),
+//                                lastName.getText(),
+//                                phoneNumber.getText(),
+//                                new Address(0,street.getText(),city.getText(),state.getText(),zip.getText()),
+//                                "",new Role(2, RoleType.MEMEBER.toString())
+//                        ));
+//                    }else{
+//                        int id = Integer.parseInt(memberId.getText().trim());
+//                        memberService.updateMember(new Member(
+//                                id,
+//                                firstName.getText(),
+//                                lastName.getText(),
+//                                phoneNumber.getText(),
+//                                new Address(
+//                                        member.getAddress().getId(),
+//                                        street.getText(),
+//                                        city.getText(),
+//                                        state.getText(),
+//                                        zip.getText()),
+//                                "",new Role(2, RoleType.MEMEBER.toString())
+//                        ));
+//                    }
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
             }
         });
     }
