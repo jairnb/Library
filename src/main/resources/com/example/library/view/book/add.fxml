@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.library.controller.BookController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library.controller.BookController">
+   <children>
+      <TextField fx:id="titleTextField" layoutX="91.0" layoutY="64.0" promptText="Title" />
+      <TextField fx:id="isbnTextField" layoutX="325.0" layoutY="64.0" promptText="ISBN" />
+      <TextField fx:id="maxDayTextField" layoutX="91.0" layoutY="120.0" promptText="Max Day" />
+      <TextField fx:id="firstName" layoutX="91.0" layoutY="198.0" promptText="First Name" />
+      <TextField fx:id="lastName" layoutX="325.0" layoutY="198.0" promptText="Last Name" />
+      <TextField fx:id="credential" layoutX="91.0" layoutY="238.0" promptText="Credential" />
+      <TextField fx:id="shortBio" layoutX="325.0" layoutY="238.0" promptText="Short Bio" />
+      <TextField fx:id="phoneNumber" layoutX="91.0" layoutY="282.0" promptText="Phone Number" />
+      <TextField fx:id="street" layoutX="325.0" layoutY="282.0" promptText="Street" />
+      <TextField fx:id="city" layoutX="91.0" layoutY="332.0" promptText="City" />
+      <TextField fx:id="state" layoutX="322.0" layoutY="332.0" promptText="State" />
+      <TextField fx:id="zip" layoutX="91.0" layoutY="385.0" promptText="ZIP" />
+      <Button layoutX="522.0" layoutY="409.0" mnemonicParsing="false" onAction="#addInDatabase" text="Save" />
+      <Button layoutX="430.0" layoutY="409.0" mnemonicParsing="false" text="Cancel" />
+      <Label layoutX="229.0" layoutY="168.0" text="Author Information" />
+      <Separator layoutX="91.0" layoutY="158.0" prefHeight="0.0" prefWidth="551.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+   </children>
 </AnchorPane>

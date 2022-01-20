@@ -25,7 +25,7 @@ public class MemberService {
 
             AddressService addressService = new AddressService();
             Address address = member.getAddress();
-            int id = addressService.addAddress(new Address(address.getId(),address.getStreet(),address.getCity(),address.getState(), address.getPostalCode()));
+            int id = addressService.addAddress(new Address(address.getStreet(),address.getCity(),address.getState(), address.getPostalCode()));
 
             Connection con = StaticHelpers.connection;
             statement = con.prepareStatement("insert into member(password,first_name,last_name,phone_number,adress_id) values(?,?,?,?,?)");

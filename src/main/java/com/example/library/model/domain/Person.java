@@ -1,14 +1,13 @@
 package com.example.library.model.domain;
 
-public class Person {
-    private int id;
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
-    private Address address;
+public abstract class Person {
+    protected int id;
+    protected String firstName;
+    protected String lastName;
+    protected String phoneNumber;
+    protected Address address;
 
-    public Person(int id, String firstName, String lastName, String phoneNumber, Address address){
-        this.id = id;
+    public Person(String firstName, String lastName, String phoneNumber, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;

@@ -7,13 +7,13 @@ public class Address {
     private String postalCode;
     private String street;
 
-    public Address(int id,String street,String city,String state,String postalCode){
+    public Address(String street,String city,String state,String postalCode){
         this.setStreet(street);
         this.setCity(city);
         this.setState(state);
         this.setPostalCode(postalCode);
-        this.id = id;
     }
+
     public int getId(){
         return id;
     }
@@ -47,5 +47,9 @@ public class Address {
 
     public void setStreet(String street) {
         this.street = street;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

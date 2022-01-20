@@ -7,14 +7,15 @@ public class Book {
     private String title;
     private String isbn;
     private String availability;
-    List<Author> authors;
+    private String maxDate;
+    private int author_id;
 
-    public Book(int id, String title, String isbn, String availability, List<Author> authors) {
-        this.id = id;
+    public Book(String title, String isbn, String availability, String maxDate, int author_id) {
         this.title = title;
         this.isbn = isbn;
         this.availability = availability;
-        this.authors = authors;
+        this.maxDate = maxDate;
+        this.author_id = author_id;
     }
 
     public int getId() {
@@ -49,11 +50,19 @@ public class Book {
         this.availability = availability;
     }
 
-    public List<Author> getAuthors() {
-        return authors;
+    public String getMaxDate() {
+        return maxDate;
     }
 
-    public void setAuthors(List<Author> authors) {
-        this.authors = authors;
+    public void setMaxDate(String maxDate) {
+        this.maxDate = maxDate;
+    }
+
+    public int getAuthor_id() {
+        return author_id;
+    }
+
+    public void setAuthor_id(int author_id) {
+        this.author_id = author_id;
     }
 }
