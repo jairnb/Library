@@ -2,26 +2,21 @@ package com.example.library.model.domain;
 
 public class Address {
     private int id;
-    private String street;
     private String city;
     private String state;
-    private String zip;
+    private String postalCode;
+    private String street;
 
-    public Address(String street, String city, String state, String zip) {
-        this.street = street;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
+    public Address(int id,String street,String city,String state,String postalCode){
+        this.setStreet(street);
+        this.setCity(city);
+        this.setState(state);
+        this.setPostalCode(postalCode);
+        this.id = id;
     }
-
-    public String getStreet() {
-        return street;
+    public int getId(){
+        return id;
     }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
     public String getCity() {
         return city;
     }
@@ -38,19 +33,19 @@ public class Address {
         this.state = state;
     }
 
-    public String getZip() {
-        return zip;
+    public String getPostalCode() {
+        return postalCode;
     }
 
-    public void setZip(String zip) {
-        this.zip = zip;
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
-    public int getId() {
-        return id;
+    public String getStreet() {
+        return street;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStreet(String street) {
+        this.street = street;
     }
 }

@@ -1,19 +1,15 @@
 package com.example.library.model.domain;
 
-public class Member{
-    private int id;
-    private String name;
-    private String lastName;
-    protected String password;
-    private String phoneNumber;
+public class Member extends Person{
+    private String password;
+    private Role role;
 
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
+    public Member(int id, String firstName, String lastName, String phoneNumber, Address address, String password, Role role) {
+        super(id, firstName, lastName, phoneNumber, address);
+        this.password = password;
+        this.role = role;
     }
 
     public String getPassword() {
@@ -24,5 +20,11 @@ public class Member{
         this.password = password;
     }
 
+    public Role getRole() {
+        return role;
+    }
 
+    public void setRole(Role role) {
+        this.role = role;
+    }
 }
