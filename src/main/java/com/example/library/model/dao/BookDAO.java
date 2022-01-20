@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 public class BookDAO {
     public static boolean insert(Book book){
-        String sql = "INSERT INTO book(title, isbn, availability, borrow_day_number, author_idAuthor) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO book(title, isbn, availability, borrow_day_number, author_idAuthor, numberAvailable, numberOfCopy) VALUES(?,?,?,?,?,?,?)";
         try{
             PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
             stmt.setString(1, book.getTitle());
@@ -22,6 +22,8 @@ public class BookDAO {
             stmt.setString(3, book.getAvailability());
             stmt.setString(4, book.getMaxDate());
             stmt.setString(5, Integer.toString(book.getAuthor().getId()));
+            stmt.setInt(6, book.getNumberAvailable());
+            stmt.setInt(7, book.getNumberOfCopy());
             stmt.execute();
             return true;
         }catch(SQLException ex){
@@ -40,13 +42,59 @@ public class BookDAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Book b = new Book(rs.getString(1), rs.getString(2), rs.getString(4), rs.getString(5), AuthorDAO.getById(rs.getInt(5)));
+                Book b = new Book(rs.getString(2), rs.getString(2), rs.getString(4), rs.getString(5), AuthorDAO.getById(rs.getInt(6)));
                 b.setId(rs.getInt(1));
+                b.setNumberAvailable(rs.getInt(7));
+                b.setNumberOfCopy(rs.getInt(8));
+
                 bookList.add(b);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return bookList;
+    }
+
+    public static Book getById(int id){
+        String sql = "SELECT * FROM book where id=?";
+
+        try{
+            PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                Book b = new Book(rs.getString(2), rs.getString(2), rs.getString(4), rs.getString(5), AuthorDAO.getById(rs.getInt(6)));
+                b.setId(rs.getInt(1));
+                b.setNumberAvailable(rs.getInt(7));
+                b.setNumberOfCopy(rs.getInt(8));
+                return b;
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    public static boolean updateCopyNumber(int idBook, int number){
+        Book b = getById(idBook);
+        int new_number = b.getNumberOfCopy() + number;
+        int new_number_available = b.getNumberAvailable() + number;
+
+
+        String sql = "Update book set numberOfCopy=?, numberAvailable=? WHERE id=?";
+
+        try {
+            PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
+            stmt.setInt(1, new_number);
+            stmt.setInt(2, new_number_available);
+            stmt.setInt(3, idBook);
+            stmt.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 }

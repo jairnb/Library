@@ -49,7 +49,7 @@ public class AddressDAO {
 
         try{
             PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
-            stmt.setInt(1, 1);
+            stmt.setInt(1, id);
 
             ResultSet rs = stmt.executeQuery();
             if(rs.next()){

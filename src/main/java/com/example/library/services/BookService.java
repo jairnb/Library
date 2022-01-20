@@ -7,4 +7,8 @@ public class BookService {
     public static void addBook(Book book){
         BookDAO.insert(book);
     }
+
+    public static Book getById(int id) { return BookDAO.getById(id);}
+
+    public static boolean updateCopyNumber(int id, int n) { return BookDAO.updateCopyNumber(id, n);}
 }

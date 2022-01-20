@@ -13,8 +13,9 @@
             <TableView fx:id="bookTable" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <columns>
                   <TableColumn fx:id="title" prefWidth="75.0" text="Title" />
-                  <TableColumn fx:id="isbn" prefWidth="75.0" text="ISBN" />
-                  <TableColumn fx:id="availability" prefWidth="75.0" text="Availability" />
+                  <TableColumn fx:id="isbn" prefWidth="108.0" text="ISBN" />
+                  <TableColumn fx:id="availability" prefWidth="147.0" text="Number Available" />
+                  <TableColumn fx:id="numberOfCopy" prefWidth="75.0" text="Number Of Copy" />
                   <TableColumn fx:id="max_day" prefWidth="75.0" text="Max Day" />
                </columns>
                <columnResizePolicy>
@@ -24,10 +25,11 @@
          </children></AnchorPane>
       <Group layoutX="384.0" layoutY="14.0" AnchorPane.rightAnchor="5.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#addBook" text="Add" />
             <Button layoutX="64.0" mnemonicParsing="false" text="Edit" />
             <Button layoutX="120.0" mnemonicParsing="false" text="Delete" />
          </children>
       </Group>
+      <Button layoutX="325.0" layoutY="15.0" mnemonicParsing="false" onAction="#addBook" text="Add Book" />
+      <Button layoutX="433.0" layoutY="15.0" mnemonicParsing="false" onAction="#addCopy" text="Add Copy" />
    </children>
 </AnchorPane>

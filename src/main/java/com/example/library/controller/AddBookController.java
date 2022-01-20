@@ -49,6 +49,8 @@ public class AddBookController implements Initializable {
         book.setIsbn(isbnTextField.getText());
         book.setTitle(titleTextField.getText());
         book.setMaxDate(maxDayTextField.getText());
+        book.setNumberOfCopy(1);
+        book.setNumberAvailable(1);
         confirmButton = true;
         dialogStage.close();
     }

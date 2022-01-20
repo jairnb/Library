@@ -81,6 +81,8 @@ CREATE TABLE IF NOT EXISTS `library_mpp`.`book` (
   `availability` VARCHAR(45) NULL,
   `borrow_day_number` VARCHAR(45) NULL,
   `author_idAuthor` INT NOT NULL,
+  `numberAvailable` INT,
+  `numberOfCopy` INT,
   PRIMARY KEY (`id`, `author_idAuthor`),
   INDEX `fk_book_author1_idx` (`author_idAuthor` ASC) VISIBLE,
   CONSTRAINT `fk_book_author1`

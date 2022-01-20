@@ -9,6 +9,8 @@ public class Book {
     private String availability;
     private String maxDate;
     private Author author;
+    private int numberOfCopy;
+    private int numberAvailable;
 
     public Book(String title, String isbn, String availability, String maxDate, Author author) {
         this.title = title;
@@ -17,6 +19,7 @@ public class Book {
         this.maxDate = maxDate;
         this.author = author;
     }
+
 
     public Book() {
     }
@@ -67,5 +70,21 @@ public class Book {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public int getNumberOfCopy() {
+        return numberOfCopy;
+    }
+
+    public void setNumberOfCopy(int numberOfCopy) {
+        this.numberOfCopy = numberOfCopy;
+    }
+
+    public int getNumberAvailable() {
+        return numberAvailable;
+    }
+
+    public void setNumberAvailable(int numberAvailable) {
+        this.numberAvailable = numberAvailable;
     }
 }
