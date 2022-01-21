@@ -143,13 +143,12 @@ ENGINE = InnoDB;
 -- Table `library_mpp`.`book_copy`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `library_mpp`.`book_copy` (
-  `idbook_copy` INT NOT NULL AUTO_INCREMENT,
-  `isbn` VARCHAR(45) NULL,
-  `Book_idBook` INT NOT NULL,
-  PRIMARY KEY (`idbook_copy`, `Book_idBook`),
-  INDEX `fk_book_copy_Book1_idx` (`Book_idBook` ASC) VISIBLE,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `book_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `book_id`),
+  INDEX `fk_book_copy_Book1_idx` (`book_id` ASC) VISIBLE,
   CONSTRAINT `fk_book_copy_Book1`
-    FOREIGN KEY (`Book_idBook`)
+    FOREIGN KEY (`book_id`)
     REFERENCES `library_mpp`.`book` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

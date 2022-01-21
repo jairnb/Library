@@ -120,7 +120,7 @@ public class BookDAO {
         int number_available = getById(book.getId()).getNumberAvailable();
         int n = 0;
         if ("checkout".equals(type)){
-            n = number_available + 1;
+            n = number_available - 1;
         }
         else if ("checkin".equals(type)){
             n = number_available + 1;

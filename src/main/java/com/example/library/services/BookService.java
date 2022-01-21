@@ -12,5 +12,9 @@ public class BookService {
 
     public static Book getByISBN(String isbn) { return BookDAO.getByISBN(isbn);}
 
-    public static boolean updateCopyNumber(int id, int n) { return BookDAO.updateCopyNumber(id, n);}
+    public static boolean updateCopyNumber(Book book, int n) {
+        BookDAO.updateCopyNumber(book.getId(), n);
+        BookCopyService.addBookCopy(book, n);
+        return true;
+    }
 }

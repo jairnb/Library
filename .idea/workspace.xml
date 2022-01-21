@@ -5,7 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cfb8f22-7c05-4f9a-b06b-bb64816e1f5a" name="Changes" comment="Checkin Book">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/FineController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/BookCopyDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/FineDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/BookCopy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Fine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/services/BookCopyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/library/services/FineService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/fine/index.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/controller/AddBookCopyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/AddBookCopyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/controller/CheckinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/CheckinController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/BookDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/database/library_v.0.2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/database/library_v.0.2.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/RoleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/RoleType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/services/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/services/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/library/view/checkbook/checkin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/checkbook/checkin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/library/view/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/library/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/library/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +83,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2735632" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
@@ -135,7 +155,8 @@
       <workItem from="1642750250564" duration="50000" />
       <workItem from="1642750447630" duration="197000" />
       <workItem from="1642780384633" duration="7971000" />
-      <workItem from="1642792903989" duration="609000" />
+      <workItem from="1642792903989" duration="2011000" />
+      <workItem from="1642795131905" duration="9129000" />
     </task>
     <task id="LOCAL-00001" summary="Database setup">
       <created>1642626038976</created>
@@ -235,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642789009991</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Checkin Book">
+      <created>1642793520873</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1642793520873</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

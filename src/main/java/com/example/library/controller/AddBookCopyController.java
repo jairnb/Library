@@ -55,7 +55,7 @@ public class AddBookCopyController implements Initializable {
 
     }
     public void addCopy() {
-        BookService.updateCopyNumber(book.getId(), Integer.parseInt(numberOfCopy.getText()));
+        BookService.updateCopyNumber(book, Integer.parseInt(numberOfCopy.getText()));
         confirmButton = false;
         dialogStage.close();
     }

@@ -28,5 +28,6 @@
         </columns>
       </TableView>
       <Button layoutX="560.0" layoutY="114.0" mnemonicParsing="false" onAction="#checkin" text="Checkin" />
+      <Button layoutX="480.0" layoutY="114.0" mnemonicParsing="false" onAction="#payFine" text="Pay Fine" />
    </children>
 </AnchorPane>

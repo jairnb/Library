@@ -3,6 +3,7 @@ package com.example.library.controller;
 import com.example.library.model.domain.Checkout;
 import com.example.library.model.domain.Member;
 import com.example.library.services.CheckinService;
+import com.example.library.services.FineService;
 import com.example.library.services.MemberService;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -105,7 +106,32 @@ public class CheckinController implements Initializable {
             alert.setContentText(null);
             alert.showAndWait();
         }
+    }
 
+    public void payFine(){
+        Checkout checkout = checkOutTable.getSelectionModel().getSelectedItem();
 
+        if (!(checkout == null)){
+            if ((checkout.getCheckoutDate().compareTo(LocalDate.now()) >= 1)){
+                FineService.addFine(checkout);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Payment success");
+                alert.setHeaderText("Payment success");
+                alert.setContentText(null);
+                alert.showAndWait();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("No need to pay");
+                alert.setHeaderText("No need to pay");
+                alert.setContentText(null);
+                alert.showAndWait();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Select Data In Table");
+            alert.setHeaderText("Enter with user id or select checkout in table first");
+            alert.setContentText(null);
+            alert.showAndWait();
+        }
     }
 }
