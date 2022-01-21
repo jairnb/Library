@@ -1,7 +1,6 @@
 package com.example.library.controller;
 
 import com.example.library.UserSingleton;
-import com.example.library.model.domain.Book;
 import com.example.library.model.domain.Member;
 import com.example.library.model.domain.RoleType;
 import com.example.library.services.MemberService;
@@ -21,7 +20,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class MemberListController implements Initializable {
@@ -71,7 +69,6 @@ public class MemberListController implements Initializable {
         firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
-//        chkSelect.setCellValueFactory(new PropertyValueFactory<>("chkSelect"));
 
         memberService = new MemberService();
         memberObservableList = FXCollections.observableArrayList(memberService.getAllMembers());
@@ -82,7 +79,7 @@ public class MemberListController implements Initializable {
         editButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                if(UserSingleton.getUserId().equals(RoleType.ADMIN) || UserSingleton.getUserId().equals(RoleType.BOTH)){
+                if(UserSingleton.getUserRole().equals(RoleType.ADMIN.toString()) || UserSingleton.getUserRole().equals(RoleType.BOTH.toString())){
                     openDialog(false);
                 }
             }
@@ -93,7 +90,7 @@ public class MemberListController implements Initializable {
         addNewButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                if(UserSingleton.getUserId().equals(RoleType.ADMIN) || UserSingleton.getUserId().equals(RoleType.BOTH)){
+                if(UserSingleton.getUserRole().equals(RoleType.ADMIN.toString()) || UserSingleton.getUserRole().equals(RoleType.BOTH.toString())){
                     openDialog(true);
                 }
             }

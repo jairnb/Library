@@ -1,26 +1,19 @@
 package com.example.library.controller;
 
-import com.example.library.model.domain.*;
+import com.example.library.model.domain.Address;
+import com.example.library.model.domain.Member;
+import com.example.library.model.domain.RoleType;
 import com.example.library.services.MemberService;
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.TilePane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Stack;
 
 
 public class MemberController implements Initializable {
@@ -106,7 +99,7 @@ public class MemberController implements Initializable {
                                 phoneNumber.getText(),
                                 new Address(0,street.getText(),city.getText(),state.getText(),zip.getText()),
                                 passwordField.getText(),
-                                roleSelect.equals("[select]") ? "" : roleSelect,
+                                roleSelect == null || roleSelect.equals("[select]") ? "" : roleSelect,
                                 userId.getText()
                         ));
                     }else{
@@ -123,7 +116,7 @@ public class MemberController implements Initializable {
                                         state.getText(),
                                         zip.getText()),
                                 passwordField.getText(),
-                                roleSelect.equals("[select]") ? "" : roleSelect,
+                                roleSelect == null || roleSelect.equals("[select]") ? "" : roleSelect,
                                 userId.getText()
                         ));
                     }
@@ -168,7 +161,10 @@ public class MemberController implements Initializable {
                     zip.setText(ad.getPostalCode());
                 }
                 passwordField.setText(member.getPassword());
-                role.getSelectionModel().select(member.getRole());
+                if(member.getRole().equals(""))
+                    role.setValue("[select]");
+                else
+                    role.setValue(member.getRole());
                 userId.setText(member.getUserId());
 
             }
@@ -185,7 +181,7 @@ public class MemberController implements Initializable {
         zip.setText("");
     }
 
-    private boolean validateInput(){
+    private boolean validateInput() throws Exception {
         Alert alert = new Alert(Alert.AlertType.WARNING);
 
         if(this.firstName.getText().trim().equals("")){
@@ -206,27 +202,26 @@ public class MemberController implements Initializable {
             return  false;
         }
 
+        if(userId.getText().equals("")){
+            alert.setContentText("User id is required");
+            alert.showAndWait();
+            return false;
+        }
+
+        if(memberService.isUserIdExisted(userId.getText())){
+            alert.setContentText("User id is already existed");
+            alert.showAndWait();
+            return false;
+        }
 
         return  true;
     }
 
     private Boolean validateUser() throws Exception {
         String roleSelect = role.getSelectionModel().getSelectedItem();
-        memberService = new MemberService();
 
-        if(!(roleSelect.equals(RoleType.ADMIN) || roleSelect.equals(RoleType.LIBRARIAN))){
+        if(roleSelect != null && (roleSelect.equals(RoleType.ADMIN.toString()) || roleSelect.equals(RoleType.LIBRARIAN.toString()))){
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            if(userId.getText().equals("")){
-                alert.setContentText("User id is required");
-                alert.showAndWait();
-                return false;
-            }
-
-            if(memberService.isUserIdExisted(userId.getText())){
-                alert.setContentText("User id is already existed");
-                alert.showAndWait();
-                return false;
-            }
 
             if(passwordField.getText().equals("")){
                 alert.setContentText("Password is required");

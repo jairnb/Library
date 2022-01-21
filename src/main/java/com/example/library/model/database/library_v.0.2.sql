@@ -155,6 +155,10 @@ CREATE TABLE IF NOT EXISTS `library_mpp`.`book_copy` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+CREATE TABLE `library_mpp`.`book_author` (
+  `book_id` INT NOT NULL,
+  `author_id` INT NOT NULL,
+  PRIMARY KEY (`book_id`, `author_id`));
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
