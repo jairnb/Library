@@ -239,7 +239,6 @@ public class MemberController implements Initializable {
     }
 
     public void setDialogStage(Stage dialogStage) {
-        System.out.println("setDialog");
         this.dialogStage = dialogStage;
     }
 

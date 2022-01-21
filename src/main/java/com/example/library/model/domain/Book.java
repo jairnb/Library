@@ -8,16 +8,16 @@ public class Book {
     private String isbn;
     private String availability;
     private String maxDate;
-    private Author author;
+    private List<Author> authors;
     private int numberOfCopy;
     private int numberAvailable;
 
-    public Book(String title, String isbn, String availability, String maxDate, Author author) {
+    public Book(String title, String isbn, String availability, String maxDate, List<Author> authors) {
         this.title = title;
         this.isbn = isbn;
         this.availability = availability;
         this.maxDate = maxDate;
-        this.author = author;
+        this.authors = authors;
     }
 
 
@@ -64,12 +64,12 @@ public class Book {
         this.maxDate = maxDate;
     }
 
-    public Author getAuthor() {
-        return author;
+    public List<Author> getAuthor() {
+        return authors;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setAuthor(List<Author> authors) {
+        this.authors = authors;
     }
 
     public int getNumberOfCopy() {

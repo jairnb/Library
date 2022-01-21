@@ -101,7 +101,7 @@ public class MemberListController implements Initializable {
     private void openDialog(boolean isNew){
         try{
             FXMLLoader loader= new FXMLLoader();
-            loader.setLocation(AddBookController.class.getResource("/com/example/library/view/member/addUpdateMember.fxml"));
+            loader.setLocation(MemberController.class.getResource("/com/example/library/view/member/addUpdateMember.fxml"));
             AnchorPane pane = (AnchorPane) loader.load();
 
             Stage dialogStage = new Stage();

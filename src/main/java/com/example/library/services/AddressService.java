@@ -1,10 +1,8 @@
 package com.example.library.services;
 
 import com.example.library.StaticHelpers;
-import com.example.library.model.dao.AddressDAO;
 import com.example.library.model.database.MySQLDatabase;
 import com.example.library.model.domain.Address;
-import com.example.library.model.domain.Member;
 
 import java.sql.*;
 import java.util.logging.Level;
@@ -24,8 +22,6 @@ public class AddressService {
                     "VALUE(?,?,?,?)";
 
             statement = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
-
-            System.out.println(address.getStreet());
 
             statement.setString(1, address.getStreet());
             statement.setString(2, address.getCity());

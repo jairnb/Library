@@ -14,7 +14,7 @@
             <children>
                 <TextField fx:id="lastName" layoutX="199.0" layoutY="60.0" prefHeight="26.0" prefWidth="194.0" promptText="Last Name" />
                 <TextField fx:id="firstName" layoutX="36.0" layoutY="60.0" prefHeight="26.0" prefWidth="150.0" promptText="First Name" />
-                <TextField fx:id="phoneNumber" layoutX="35.0" layoutY="94.0" prefHeight="26.0" prefWidth="360.0" promptText="Phone Number: *Phone number must contain only numbers" />
+                <TextField fx:id="phoneNumber" layoutX="35.0" layoutY="94.0" prefHeight="26.0" prefWidth="360.0" promptText="Phone Number: Phone number must contain only numbers" />
                 <TextField fx:id="street" layoutX="35.0" layoutY="128.0" prefHeight="26.0" prefWidth="360.0" promptText="Street" />
                 <TextField fx:id="zip" layoutX="202.0" layoutY="204.0" prefHeight="26.0" prefWidth="194.0" promptText="Enter 5 digits only zip number" />
                 <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="140.0" prefHeight="46.0" prefWidth="150.0" text="Add Author" textAlignment="CENTER">

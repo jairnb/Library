@@ -82,7 +82,6 @@ CREATE TABLE IF NOT EXISTS `library_mpp`.`book` (
   `isbn` VARCHAR(45) NULL,
   `availability` VARCHAR(45) NULL,
   `borrow_day_number` VARCHAR(45) NULL,
-  `author_idAuthor` INT NOT NULL,
   `numberAvailable` INT,
   `numberOfCopy` INT,
   PRIMARY KEY (`id`, `author_idAuthor`),
