@@ -153,4 +153,25 @@ public class MemberDAO {
         return  isExisted;
     }
 
+    public Boolean isUserPasswordCorrect(String userId,String password) throws  Exception{
+        Boolean isCorrect = false;
+
+        try{
+            Connection con = StaticHelpers.connection;
+            statement = con.prepareStatement("select * from member where user_id = ? and password=? limit 1");
+
+            statement.setString(1, userId);
+            statement.setString(2, password);
+
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()){
+                isCorrect = true;
+            }
+
+        }catch (SQLException ex){
+            Logger.getLogger(MySQLDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return  isCorrect;
+    }
 }

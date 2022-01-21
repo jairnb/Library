@@ -249,14 +249,6 @@ public class MemberController implements Initializable {
         this.dialogStage = dialogStage;
     }
 
-//    public Member getBook() {
-//        return member;
-//    }
-
-//    public void setBook(Member book) {
-//        this.member = member;
-//    }
-
     public void setMemberId(int id) {
         System.out.println("setMemberId");
         memberId.setText(id + "");

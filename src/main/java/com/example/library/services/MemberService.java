@@ -40,5 +40,8 @@ public class MemberService {
         return dao.isUserIdExisted(userId);
     }
 
-
+    public Boolean isUserPasswordCorrect(String userId,String password) throws Exception {
+        MemberDAO dao= new MemberDAO();
+        return dao.isUserPasswordCorrect(userId,password);
+    }
 }
