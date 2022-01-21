@@ -52,6 +52,7 @@ public class CheckoutController implements Initializable {
             String res = CheckoutService.checkoutBook(txtMemberId.getText(), txtISBN.getText());
             checkoutMsgLabel.setText(res);
             checkoutMsgLabel.setVisible(true);
+            loadTable();
         }
     }
 

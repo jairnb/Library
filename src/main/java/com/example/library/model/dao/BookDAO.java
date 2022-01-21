@@ -116,8 +116,15 @@ public class BookDAO {
         return null;
     }
 
-    public static void updateNumberBookAvailable(Book book){
-        int new_number_available = book.getNumberAvailable() - 1;
+    public static void updateNumberBookAvailable(Book book, String type){
+        int new_number_available = book.getNumberAvailable();
+        if ("checkout".equals(type)){
+            new_number_available -= 1;
+        }
+        else if ("checkin".equals(type)){
+            new_number_available += 1;
+        }
+
         String sql = "Update book set numberAvailable=? WHERE id=?";
 
         try {

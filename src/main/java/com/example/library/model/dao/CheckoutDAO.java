@@ -1,18 +1,14 @@
 package com.example.library.model.dao;
 
 import com.example.library.StaticHelpers;
-import com.example.library.model.domain.Address;
-import com.example.library.model.domain.Author;
-import com.example.library.model.domain.Book;
 import com.example.library.model.domain.Checkout;
 import com.example.library.services.BookService;
 import com.example.library.services.MemberService;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -56,10 +52,31 @@ public class CheckoutDAO {
 
     public static List<Checkout> selectAll(){
         List<Checkout> checkList = new ArrayList<>();
-        String sql = "SELECT * FROM checkout_entriers";
+        String sql = "SELECT * FROM checkout_entriers ORDER BY id ASC";
 
         try {
             PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Checkout c = new Checkout(rs.getDate(2).toLocalDate(), rs.getDate(3).toLocalDate(), BookService.getById(rs.getInt(4)), MemberService.getStaticMemberById(rs.getInt(5)));
+                c.setId(rs.getInt(1));
+                checkList.add(c);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return checkList;
+    }
+
+    public static List<Checkout> selectAllUserCheckout(int id){
+        List<Checkout> checkList = new ArrayList<>();
+        String sql = "SELECT * FROM checkout_entriers where member_id=?";
+
+        try {
+            PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
+            stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Checkout c = new Checkout(rs.getDate(2).toLocalDate(), rs.getDate(3).toLocalDate(), BookService.getById(rs.getInt(4)), MemberService.getStaticMemberById(rs.getInt(5)));

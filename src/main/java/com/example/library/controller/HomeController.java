@@ -39,7 +39,12 @@ public class HomeController implements Initializable {
     }
 
     public void checkout() throws IOException {
-        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/com/example/library/view/checkout/checkout.fxml"));
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/com/example/library/view/checkbook/checkout.fxml"));
+        contentAnchorPane.getChildren().setAll(a);
+    }
+
+    public void checkin() throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/com/example/library/view/checkbook/checkin.fxml"));
         contentAnchorPane.getChildren().setAll(a);
     }
 }

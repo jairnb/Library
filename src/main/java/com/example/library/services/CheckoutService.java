@@ -45,7 +45,7 @@ public class CheckoutService {
     }
 
     private static boolean updateBookNumberAvailable(Book book){
-        BookDAO.updateNumberBookAvailable(book);
+        BookDAO.updateNumberBookAvailable(book, "checkout");
         return true;
     }
 }
