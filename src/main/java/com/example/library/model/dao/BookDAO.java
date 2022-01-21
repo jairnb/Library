@@ -117,19 +117,20 @@ public class BookDAO {
     }
 
     public static void updateNumberBookAvailable(Book book, String type){
-        int new_number_available = book.getNumberAvailable();
+        int number_available = getById(book.getId()).getNumberAvailable();
+        int n = 0;
         if ("checkout".equals(type)){
-            new_number_available -= 1;
+            n = number_available + 1;
         }
         else if ("checkin".equals(type)){
-            new_number_available += 1;
+            n = number_available + 1;
         }
 
         String sql = "Update book set numberAvailable=? WHERE id=?";
 
         try {
             PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
-            stmt.setInt(1, new_number_available);
+            stmt.setInt(1, n);
             stmt.setInt(2, book.getId());
             stmt.execute();
         } catch (SQLException e) {

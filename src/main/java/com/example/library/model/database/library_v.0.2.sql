@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `library_mpp`.`checkout_entriers` (
   `checkout_date` DATE NULL,
   `book_id` INT NOT NULL,
   `member_id` INT NOT NULL,
-  `is_returned` TINYINT NULL DEFAULT 0
+  `is_returned` TINYINT NULL DEFAULT 0,
   PRIMARY KEY (`id`, `book_id`, `member_id`),
   INDEX `fk_checkoutEntriers_Book1_idx` (`book_id` ASC) VISIBLE,
   INDEX `fk_checkout_entriers_member1_idx` (`member_id` ASC) VISIBLE,

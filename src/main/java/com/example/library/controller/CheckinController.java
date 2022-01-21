@@ -71,25 +71,41 @@ public class CheckinController implements Initializable {
         checkOutTable.setItems(checkoutsObservableList);
     }
 
-    public void checkin(){
+    public void checkin() throws Exception {
         Checkout checkout = checkOutTable.getSelectionModel().getSelectedItem();
-
-        if (LocalDate.now().compareTo(checkout.getDueDate()) >= 1){
+        if (!(checkout == null)){
+            if (!checkout.isReturned()){
+                if (LocalDate.now().compareTo(checkout.getDueDate()) >= 1){
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Checking Warning");
+                    alert.setHeaderText("User must pay fine");
+                    alert.setContentText(null);
+                    alert.showAndWait();
+                }
+                else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Success Checking");
+                    alert.setHeaderText("Success checking");
+                    alert.setContentText(null);
+                    alert.showAndWait();
+                }
+                CheckinService.checkin(checkout);
+                loadTable(CheckinService.selectAllUserCheckout(checkout.getMember().getId()));
+            }else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Book Already Returned");
+                alert.setHeaderText("Book Already Returned");
+                alert.setContentText(null);
+                alert.showAndWait();
+            }
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Checking Warning");
-            alert.setHeaderText("User must pay fine");
-            alert.setContentText(null);
-            alert.showAndWait();
-        }
-        else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success Checking");
-            alert.setHeaderText("Success checking");
+            alert.setTitle("Select Data In Table");
+            alert.setHeaderText("Enter with user id or select checkout in table first");
             alert.setContentText(null);
             alert.showAndWait();
         }
 
-        CheckinService.checkin(checkout);
-//        CheckinService.updateBookNumberAvailable(checkout.getBook());
+
     }
 }

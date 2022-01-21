@@ -7,13 +7,10 @@
     <list default="true" id="4cfb8f22-7c05-4f9a-b06b-bb64816e1f5a" name="Changes" comment="Checkin Book">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/controller/CheckinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/CheckinController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/controller/CheckoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/controller/CheckoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/BookDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/CheckoutDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/dao/CheckoutDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/database/library_v.0.2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/database/library_v.0.2.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Checkout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/model/domain/Checkout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/library/services/CheckinService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/library/services/CheckinService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/library/view/checkbook/checkin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/checkbook/checkin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/library/view/checkbook/checkout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/library/view/checkbook/checkout.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +139,7 @@
       <workItem from="1642730416061" duration="19764000" />
       <workItem from="1642750250564" duration="50000" />
       <workItem from="1642750447630" duration="197000" />
-      <workItem from="1642780384633" duration="5733000" />
+      <workItem from="1642780384633" duration="7590000" />
     </task>
     <task id="LOCAL-00001" summary="Database setup">
       <created>1642626038976</created>
@@ -228,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642750566930</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Checkin Book">
+      <created>1642787155032</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1642787155032</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

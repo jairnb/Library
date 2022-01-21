@@ -71,17 +71,18 @@ public class CheckoutDAO {
         return checkList;
     }
 
-    public static List<Checkout> selectAllUserCheckout(int id){
+    public static List<Checkout> selectAllUserCheckout(int userId){
         List<Checkout> checkList = new ArrayList<>();
-        String sql = "SELECT * FROM checkout_entriers where member_id=?";
+        String sql = "SELECT * FROM checkout_entriers where member_id=? ORDER BY id ASC";
 
         try {
             PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
-            stmt.setInt(1, id);
+            stmt.setInt(1, userId);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Checkout c = new Checkout(rs.getDate(2).toLocalDate(), rs.getDate(3).toLocalDate(), BookService.getById(rs.getInt(4)), MemberService.getStaticMemberById(rs.getInt(5)));
                 c.setId(rs.getInt(1));
+                c.setReturned(rs.getBoolean(6));
                 checkList.add(c);
             }
         } catch (SQLException e) {
