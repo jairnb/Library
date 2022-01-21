@@ -35,11 +35,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `library_mpp`.`member` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `password` VARCHAR(45) NULL,
+  `password` VARCHAR(100) NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `phone_number` VARCHAR(45) NULL,
   `adress_id` INT NOT NULL,
+  `role` VARCHAR(20),
+  `user_id` VARCHAR(45),
   PRIMARY KEY (`id`, `adress_id`),
   INDEX `fk_member_adress1_idx` (`adress_id` ASC) VISIBLE,
   CONSTRAINT `fk_member_adress1`
@@ -147,38 +149,6 @@ CREATE TABLE IF NOT EXISTS `library_mpp`.`book_copy` (
   CONSTRAINT `fk_book_copy_Book1`
     FOREIGN KEY (`Book_idBook`)
     REFERENCES `library_mpp`.`book` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `library_mpp`.`role`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `library_mpp`.`role` (
-  `idrole` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NULL,
-  PRIMARY KEY (`idrole`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `library_mpp`.`role_has_member`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `library_mpp`.`role_has_member` (
-  `role_idrole` INT NOT NULL,
-  `member_id` INT NOT NULL,
-  PRIMARY KEY (`role_idrole`, `member_id`),
-  INDEX `fk_role_has_member_member1_idx` (`member_id` ASC) VISIBLE,
-  INDEX `fk_role_has_member_role1_idx` (`role_idrole` ASC) VISIBLE,
-  CONSTRAINT `fk_role_has_member_role1`
-    FOREIGN KEY (`role_idrole`)
-    REFERENCES `library_mpp`.`role` (`idrole`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_role_has_member_member1`
-    FOREIGN KEY (`member_id`)
-    REFERENCES `library_mpp`.`member` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

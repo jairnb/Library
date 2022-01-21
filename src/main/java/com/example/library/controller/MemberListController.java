@@ -122,8 +122,6 @@ public class MemberListController implements Initializable {
 
             controller.setDialogStage(dialogStage);
             controller.init();
-
-//            dialogStage.setAlwaysOnTop(true);
             dialogStage.showAndWait();
 
         }catch (Exception e){

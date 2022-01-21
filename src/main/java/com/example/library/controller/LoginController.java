@@ -2,6 +2,7 @@ package com.example.library.controller;
 
 import com.example.library.Main;
 import com.example.library.services.MemberService;
+import com.example.library.utils.PassEncTech2;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,7 +49,7 @@ public class LoginController implements Initializable {
     }
 
     public void login() throws Exception {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
 
         if(idTextField.getText().equals("")){
             alert.setContentText("User id is required");
@@ -63,6 +64,8 @@ public class LoginController implements Initializable {
         }
 
         memberService = new MemberService();
+//        String hashPwd = PassEncTech2.toHexString( PassEncTech2.getSHA(passwordTextField.getText()));
+//        System.out.println(hashPwd);
         if(memberService.isUserPasswordCorrect(idTextField.getText(), passwordTextField.getText())){
             AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/com/example/library/view/home.fxml"));
             loginAnchorPane.getChildren().setAll(a);

@@ -4,6 +4,7 @@ import com.example.library.StaticHelpers;
 import com.example.library.model.database.MySQLDatabase;
 import com.example.library.model.domain.*;
 import com.example.library.services.AddressService;
+import com.example.library.utils.PassEncTech2;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,8 +30,11 @@ public class MemberDAO {
 
             Connection con = StaticHelpers.connection;
             statement = con.prepareStatement("insert into member(password,first_name,last_name,phone_number,adress_id,role,user_id) values(?,?,?,?,?,?,?)");
-
-            statement.setString(1, member.getPassword());
+            String hashPwd = member.getPassword();
+            if(member.getPhoneNumber().equals("") == false){
+                hashPwd = PassEncTech2.toHexString( PassEncTech2.getSHA(member.getPassword()));
+            }
+            statement.setString(1, hashPwd);
             statement.setString(2, member.getFirstName());
             statement.setString(3,member.getLastName());
             statement.setString(4, member.getPhoneNumber());
@@ -82,18 +86,29 @@ public class MemberDAO {
 
         try{
             Connection con = StaticHelpers.connection;
+            String query = "";
+            if(member.getPassword().equals("")){
+                query = "update member set first_name=?,last_name=?,phone_number=?, role=? where id=? and adress_id=?";
+                statement = con.prepareStatement(query);
+                statement.setString(1, member.getFirstName());
+                statement.setString(2, member.getLastName());
+                statement.setString(3,member.getPhoneNumber());
+                statement.setString(4, member.getRole());
+                statement.setInt(5, member.getId());
+                statement.setInt(6, member.getAddress().getId());
+            }else{
+                String hashPwd = PassEncTech2.toHexString( PassEncTech2.getSHA(member.getPassword()));
 
-            String query = "update member set first_name=?,last_name=?,phone_number=?, role=? where id=? and adress_id=?";
-
-            statement = con.prepareStatement(query);
-
-            statement.setString(1, member.getFirstName());
-            statement.setString(2, member.getLastName());
-            statement.setString(3,member.getPhoneNumber());
-            statement.setString(4, member.getRole());
-            statement.setInt(5, member.getId());
-            statement.setInt(6, member.getAddress().getId());
-
+                query = "update member set first_name=?,last_name=?,phone_number=?, role=?, password=? where id=? and adress_id=?";
+                statement = con.prepareStatement(query);
+                statement.setString(1, member.getFirstName());
+                statement.setString(2, member.getLastName());
+                statement.setString(3,member.getPhoneNumber());
+                statement.setString(4, member.getRole());
+                statement.setString(5, hashPwd);
+                statement.setInt(6, member.getId());
+                statement.setInt(7, member.getAddress().getId());
+            }
             statement.executeUpdate();
 
             AddressService addressService = new AddressService();
@@ -158,10 +173,11 @@ public class MemberDAO {
 
         try{
             Connection con = StaticHelpers.connection;
+            String hashPwd = PassEncTech2.toHexString( PassEncTech2.getSHA(password));
             statement = con.prepareStatement("select * from member where user_id = ? and password=? limit 1");
 
             statement.setString(1, userId);
-            statement.setString(2, password);
+            statement.setString(2, hashPwd);
 
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
