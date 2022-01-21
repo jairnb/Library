@@ -112,7 +112,7 @@ public class CheckinController implements Initializable {
         Checkout checkout = checkOutTable.getSelectionModel().getSelectedItem();
 
         if (!(checkout == null)){
-            if ((checkout.getCheckoutDate().compareTo(LocalDate.now()) >= 1)){
+            if ((checkout.getCheckoutDate().compareTo(LocalDate.now()) < 1)){
                 FineService.addFine(checkout);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Payment success");

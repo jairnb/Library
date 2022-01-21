@@ -52,7 +52,7 @@ public class CheckoutDAO {
 
     public static List<Checkout> selectAll(){
         List<Checkout> checkList = new ArrayList<>();
-        String sql = "SELECT * FROM checkout_entriers ORDER BY id ASC";
+        String sql = "SELECT * FROM checkout_entriers ORDER BY due_date DESC";
 
         try {
             PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
@@ -73,7 +73,7 @@ public class CheckoutDAO {
 
     public static List<Checkout> selectAllUserCheckout(int userId){
         List<Checkout> checkList = new ArrayList<>();
-        String sql = "SELECT * FROM checkout_entriers where member_id=? ORDER BY id ASC";
+        String sql = "SELECT * FROM checkout_entriers where member_id=? ORDER BY due_date DESC";
 
         try {
             PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);

@@ -30,9 +30,6 @@ public class MemberListController implements Initializable {
     private Button addNewButton;
 
     @FXML
-    private Button checkOutEntriesButton;
-
-    @FXML
     private Button editButton;
 
     @FXML
@@ -49,9 +46,6 @@ public class MemberListController implements Initializable {
 
     @FXML
     private TableColumn<Member, String> phoneNumber;
-
-    @FXML
-    private TableColumn<Member, Boolean> chkSelect;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)  {
