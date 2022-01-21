@@ -1,6 +1,6 @@
 package com.example.library.controller;
 
-import com.example.library.Main;
+import com.example.library.UserSingleton;
 import com.example.library.services.MemberService;
 import com.example.library.utils.PassEncTech2;
 import javafx.event.EventHandler;
@@ -64,6 +64,7 @@ public class LoginController implements Initializable {
         }
 
         memberService = new MemberService();
+
 //        String hashPwd = PassEncTech2.toHexString( PassEncTech2.getSHA(passwordTextField.getText()));
 //        System.out.println(hashPwd);
         if(memberService.isUserPasswordCorrect(idTextField.getText(), passwordTextField.getText())){

@@ -7,6 +7,7 @@ public abstract class Person {
     protected String phoneNumber;
     protected Address address;
 
+    protected Person(){}
     public Person(String firstName, String lastName, String phoneNumber, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;

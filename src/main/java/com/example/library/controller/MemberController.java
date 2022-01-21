@@ -29,7 +29,6 @@ public class MemberController implements Initializable {
 
     MemberService memberService;
 
-
     @FXML
     private TextField memberId;
 

@@ -15,6 +15,12 @@ public class Member extends Person{
         this.userId = user_id;
     }
 
+    public Member(String userId, String role){
+        super();
+        this.userId = userId;
+        this.role = role;
+    }
+
     public String getPassword() {
         return password;
     }

@@ -1,7 +1,9 @@
 package com.example.library.controller;
 
+import com.example.library.UserSingleton;
 import com.example.library.model.domain.Book;
 import com.example.library.model.domain.Member;
+import com.example.library.model.domain.RoleType;
 import com.example.library.services.MemberService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -80,7 +82,9 @@ public class MemberListController implements Initializable {
         editButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                openDialog(false);
+                if(UserSingleton.getUserId().equals(RoleType.ADMIN) || UserSingleton.getUserId().equals(RoleType.BOTH)){
+                    openDialog(false);
+                }
             }
         });
     }
@@ -89,7 +93,9 @@ public class MemberListController implements Initializable {
         addNewButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                openDialog(true);
+                if(UserSingleton.getUserId().equals(RoleType.ADMIN) || UserSingleton.getUserId().equals(RoleType.BOTH)){
+                    openDialog(true);
+                }
             }
         });
     }

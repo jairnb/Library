@@ -168,9 +168,8 @@ public class MemberDAO {
         return  isExisted;
     }
 
-    public Boolean isUserPasswordCorrect(String userId,String password) throws  Exception{
-        Boolean isCorrect = false;
-
+    public Member getUser(String userId,String password) throws  Exception{
+        Member member = null;
         try{
             Connection con = StaticHelpers.connection;
             String hashPwd = PassEncTech2.toHexString( PassEncTech2.getSHA(password));
@@ -181,13 +180,15 @@ public class MemberDAO {
 
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                isCorrect = true;
+                member = new Member(
+                        rs.getString("user_id"),
+                        rs.getString("role"));
             }
 
         }catch (SQLException ex){
             Logger.getLogger(MySQLDatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return  isCorrect;
+        return  member;
     }
 }

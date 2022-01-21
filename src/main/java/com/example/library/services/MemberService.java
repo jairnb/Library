@@ -1,4 +1,5 @@
 package com.example.library.services;
+import com.example.library.UserSingleton;
 import com.example.library.model.dao.MemberDAO;
 import com.example.library.model.domain.Member;
 
@@ -40,8 +41,13 @@ public class MemberService {
         return dao.isUserIdExisted(userId);
     }
 
-    public Boolean isUserPasswordCorrect(String userId,String password) throws Exception {
+    public boolean isUserPasswordCorrect(String userId,String password) throws Exception {
         MemberDAO dao= new MemberDAO();
-        return dao.isUserPasswordCorrect(userId,password);
+        Member member = dao.getUser(userId,password);
+        if(member != null){
+            UserSingleton.createInstance(member.getUserId(),member.getRole());
+            return true;
+        }
+        return false;
     }
 }
