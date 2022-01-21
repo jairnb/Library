@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -58,16 +57,16 @@ public class BookController implements Initializable {
     public void addCopy() throws IOException {
         Book book = bookTable.getSelectionModel().getSelectedItem();
 
-        if (book == null){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Book Warning");
-            alert.setHeaderText("Select one book in table first");
-            alert.setContentText(null);
-            alert.showAndWait();
-        }else {
+//        if (book == null){
+//            Alert alert = new Alert(Alert.AlertType.WARNING);
+//            alert.setTitle("Book Warning");
+//            alert.setHeaderText("Select one book in table first");
+//            alert.setContentText(null);
+//            alert.showAndWait();
+//        }else {
             addCopyForm(book);
             loadTable();
-        }
+//        }
     }
 
     public boolean addBookForm(Book book) throws IOException{
@@ -87,7 +86,7 @@ public class BookController implements Initializable {
         controller.setBook(book);
 
 
-        dialogStage.setAlwaysOnTop(true);
+//        dialogStage.setAlwaysOnTop(true);
         dialogStage.showAndWait();
         return controller.isConfirm();
     }

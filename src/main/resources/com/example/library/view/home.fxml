@@ -16,7 +16,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button layoutX="7.0" layoutY="139.0" mnemonicParsing="false" text="Checkout" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Button layoutX="7.0" layoutY="139.0" mnemonicParsing="false" onAction="#checkout" text="Checkout" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="469.0" layoutY="39.0" prefHeight="50.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

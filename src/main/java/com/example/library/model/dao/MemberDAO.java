@@ -191,4 +191,35 @@ public class MemberDAO {
 
         return  member;
     }
+
+    public Member getMemberByUserId(String userId) throws  Exception{
+        Member member = null;
+        AddressService addressService = new AddressService();
+        try{
+            Connection con = StaticHelpers.connection;
+            statement = con.prepareStatement("select * from member where user_id = ? limit 1");
+
+            statement.setString(1, userId);
+
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()){
+                Address address = addressService.getAddressById(rs.getInt("adress_id"));
+                member = new Member(
+                        rs.getInt("id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getString("phone_number"),
+                        address,
+                        "",
+                        rs.getString("role"),
+                        rs.getString("user_id"));
+            }
+
+
+        }catch (SQLException ex){
+            Logger.getLogger(MySQLDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return  member;
+    }
 }

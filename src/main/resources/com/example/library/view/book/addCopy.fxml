@@ -6,14 +6,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="141.0" prefWidth="341.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library.controller.AddBookCopyController">
+<AnchorPane prefHeight="241.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library.controller.AddBookCopyController">
    <children>
-      <TextField fx:id="numberOfCopy" layoutX="54.0" layoutY="51.0" prefHeight="24.0" prefWidth="204.0" />
-      <Label fx:id="bookInfo" layoutX="54.0" layoutY="24.0" text="Add Number of Copy">
+      <TextField fx:id="numberOfCopy" layoutX="34.0" layoutY="155.0" prefHeight="24.0" prefWidth="204.0" visible="false" />
+      <Label fx:id="bookInfo" layoutX="180.0" layoutY="14.0" text="Add  Copy">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Button layoutX="196.0" layoutY="103.0" mnemonicParsing="false" onAction="#addCopy" text="Save" />
+      <Button fx:id="saveCopyButton" layoutX="272.0" layoutY="155.0" mnemonicParsing="false" onAction="#addCopy" prefHeight="24.0" prefWidth="100.0" text="Save" visible="false" />
+      <TextField fx:id="isbn_number" layoutX="34.0" layoutY="52.0" prefHeight="24.0" prefWidth="204.0" />
+      <Button layoutX="272.0" layoutY="52.0" mnemonicParsing="false" onAction="#searchByISBN" text="Search Book" />
+      <Label fx:id="notFoundLabel" layoutX="36.0" layoutY="94.0" prefHeight="36.0" prefWidth="125.0" text="Book not found!" visible="false" />
+      <Label fx:id="numberOfCopyLabel" layoutX="36.0" layoutY="122.0" text="Enter with number of copy" visible="false" />
    </children>
 </AnchorPane>

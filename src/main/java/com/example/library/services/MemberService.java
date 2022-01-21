@@ -50,4 +50,15 @@ public class MemberService {
         }
         return false;
     }
+
+    public static Member getMemberByUserId(String isbn) throws Exception {
+        MemberDAO dao= new MemberDAO();
+        return dao.getMemberByUserId(isbn);
+    }
+
+    public static  Member getStaticMemberById(int id) throws  Exception{
+        MemberDAO dao = new MemberDAO();
+        return  dao.getMemberById(id);
+
+    }
 }

@@ -1,7 +1,6 @@
 package com.example.library.model.dao;
 
 import com.example.library.StaticHelpers;
-import com.example.library.model.domain.Author;
 import com.example.library.model.domain.Book;
 
 import java.sql.PreparedStatement;
@@ -42,7 +41,7 @@ public class BookDAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Book b = new Book(rs.getString(2), rs.getString(2), rs.getString(4), rs.getString(5), AuthorDAO.getById(rs.getInt(6)));
+                Book b = new Book(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), AuthorDAO.getById(rs.getInt(6)));
                 b.setId(rs.getInt(1));
                 b.setNumberAvailable(rs.getInt(7));
                 b.setNumberOfCopy(rs.getInt(8));
@@ -64,7 +63,7 @@ public class BookDAO {
 
             ResultSet rs = stmt.executeQuery();
             if(rs.next()){
-                Book b = new Book(rs.getString(2), rs.getString(2), rs.getString(4), rs.getString(5), AuthorDAO.getById(rs.getInt(6)));
+                Book b = new Book(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), AuthorDAO.getById(rs.getInt(6)));
                 b.setId(rs.getInt(1));
                 b.setNumberAvailable(rs.getInt(7));
                 b.setNumberOfCopy(rs.getInt(8));
@@ -81,7 +80,6 @@ public class BookDAO {
         int new_number = b.getNumberOfCopy() + number;
         int new_number_available = b.getNumberAvailable() + number;
 
-
         String sql = "Update book set numberOfCopy=?, numberAvailable=? WHERE id=?";
 
         try {
@@ -96,5 +94,39 @@ public class BookDAO {
         }
 
         return false;
+    }
+
+    public static Book getByISBN(String isbn){
+        String sql = "SELECT * FROM book where isbn=?";
+
+        try{
+            PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
+            stmt.setString(1, isbn);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                Book b = new Book(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), AuthorDAO.getById(rs.getInt(6)));
+                b.setId(rs.getInt(1));
+                b.setNumberAvailable(rs.getInt(7));
+                b.setNumberOfCopy(rs.getInt(8));
+                return b;
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void updateNumberBookAvailable(Book book){
+        int new_number_available = book.getNumberAvailable() - 1;
+        String sql = "Update book set numberAvailable=? WHERE id=?";
+
+        try {
+            PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
+            stmt.setInt(1, new_number_available);
+            stmt.setInt(2, book.getId());
+            stmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
