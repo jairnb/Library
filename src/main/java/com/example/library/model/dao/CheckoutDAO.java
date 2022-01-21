@@ -60,6 +60,7 @@ public class CheckoutDAO {
             while (rs.next()) {
                 Checkout c = new Checkout(rs.getDate(2).toLocalDate(), rs.getDate(3).toLocalDate(), BookService.getById(rs.getInt(4)), MemberService.getStaticMemberById(rs.getInt(5)));
                 c.setId(rs.getInt(1));
+                c.setReturned(rs.getBoolean(6));
                 checkList.add(c);
             }
         } catch (SQLException e) {
@@ -107,5 +108,19 @@ public class CheckoutDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void updateIsReturned(Checkout checkout){
+
+        String sql = "Update checkout_entriers set is_returned=? WHERE id=?";
+
+        try {
+            PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
+            stmt.setBoolean(1, true);
+            stmt.setInt(2, checkout.getId());
+            stmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

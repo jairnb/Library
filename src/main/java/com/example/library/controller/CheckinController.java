@@ -33,6 +33,8 @@ public class CheckinController implements Initializable {
     @FXML
     private TableColumn<Checkout, String> userNameTC;
     @FXML
+    private TableColumn<Checkout, String> isReturnedTC;
+    @FXML
     private TextField txtMemberId;
     private ObservableList<Checkout> checkoutsObservableList;
 
@@ -62,14 +64,16 @@ public class CheckinController implements Initializable {
         dueDateTC.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDueDate().toString()));
         userIdTC.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMember().getUserId()));
         userNameTC.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMember().getFirstName()));
-
+        isReturnedTC.setCellValueFactory(cellData -> new SimpleStringProperty(
+                (cellData.getValue().isReturned()) ? "True" : "False"
+        ));
         checkoutsObservableList = FXCollections.observableArrayList(memberCheckouts);
         checkOutTable.setItems(checkoutsObservableList);
     }
 
     public void checkin(){
         Checkout checkout = checkOutTable.getSelectionModel().getSelectedItem();
-        System.out.println(LocalDate.now().compareTo(checkout.getDueDate()));
+
         if (LocalDate.now().compareTo(checkout.getDueDate()) >= 1){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Checking Warning");
@@ -79,12 +83,13 @@ public class CheckinController implements Initializable {
         }
         else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Checking Warning");
-            alert.setHeaderText("User must pay fine");
+            alert.setTitle("Success Checking");
+            alert.setHeaderText("Success checking");
             alert.setContentText(null);
             alert.showAndWait();
         }
 
-        CheckinService.updateBookNumberAvailable(checkout.getBook());
+        CheckinService.checkin(checkout);
+//        CheckinService.updateBookNumberAvailable(checkout.getBook());
     }
 }

@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library.controller.CheckinController">
    <children>
       <Button layoutX="258.0" layoutY="81.0" mnemonicParsing="false" onAction="#find" prefHeight="26.0" prefWidth="106.0" text="Find " />
@@ -20,15 +19,13 @@
       </Text>
       <TableView fx:id="checkOutTable" layoutX="74.0" layoutY="188.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
         <columns>
-          <TableColumn fx:id="userNameTC" prefWidth="75.0" text="User Name" />
-          <TableColumn fx:id="userIdTC" prefWidth="75.0" text="User Id" />
-            <TableColumn fx:id="bookTitleTC" prefWidth="75.0" text="Book Title" />
-            <TableColumn fx:id="checkoutDateTC" prefWidth="75.0" text="Checkout Date" />
-            <TableColumn fx:id="dueDateTC" prefWidth="75.0" text="Due Date" />
+          <TableColumn fx:id="userNameTC" prefWidth="106.0" text="User Name" />
+          <TableColumn fx:id="userIdTC" prefWidth="112.0" text="User Id" />
+            <TableColumn fx:id="bookTitleTC" prefWidth="103.0" text="Book Title" />
+            <TableColumn fx:id="checkoutDateTC" prefWidth="122.0" text="Checkout Date" />
+            <TableColumn fx:id="dueDateTC" prefWidth="91.0" text="Due Date" />
+            <TableColumn fx:id="isReturnedTC" prefWidth="110.0" text="Is Returned" />
         </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
       </TableView>
       <Button layoutX="560.0" layoutY="114.0" mnemonicParsing="false" onAction="#checkin" text="Checkin" />
    </children>

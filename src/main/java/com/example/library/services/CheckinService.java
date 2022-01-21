@@ -12,6 +12,11 @@ public class CheckinService {
         return CheckoutDAO.selectAllUserCheckout(id);
     }
 
+    public static boolean checkin(Checkout checkout){
+        CheckoutDAO.updateIsReturned(checkout);
+        updateBookNumberAvailable(checkout.getBook());
+        return true;
+    }
     public static boolean updateBookNumberAvailable(Book book){
         BookDAO.updateNumberBookAvailable(book, "checkin");
         return true;

@@ -25,6 +25,7 @@ public class CheckoutController implements Initializable {
     @FXML private TableColumn<Checkout, String> CdueDate;
     @FXML private TableColumn<Checkout, String> checkoutMemberName;
     @FXML private TableColumn<Checkout, String> memberId;
+    @FXML private TableColumn<Checkout, String> isReturnedTC;
     @FXML private TableView<Checkout> checkoutTable;
     private ObservableList<Checkout> checkoutsObservableList;
 
@@ -39,6 +40,9 @@ public class CheckoutController implements Initializable {
         CdueDate.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDueDate().toString()));
         memberId.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMember().getUserId()));
         checkoutMemberName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMember().getFirstName()));
+        isReturnedTC.setCellValueFactory(cellData -> new SimpleStringProperty(
+                (cellData.getValue().isReturned()) ? "True" : "False"
+        ));
 
         checkoutsObservableList = FXCollections.observableArrayList(CheckoutDAO.selectAll());
         checkoutTable.setItems(checkoutsObservableList);

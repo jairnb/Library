@@ -12,17 +12,15 @@
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.library.controller.CheckoutController">
 
     <children>
-        <TableView fx:id="checkoutTable" layoutX="16.0" layoutY="187.0" prefHeight="249.0" prefWidth="786.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="175.0">
+        <TableView fx:id="checkoutTable" layoutX="16.0" layoutY="187.0" prefHeight="325.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="175.0">
             <columns>
                 <TableColumn fx:id="CbookTitle" prefWidth="95.0" text="Book Title" />
                 <TableColumn fx:id="CcheckoutDate" prefWidth="128.0" text="Checkout Date" />
                 <TableColumn fx:id="CdueDate" minWidth="2.0" prefWidth="95.0" text="Due date " />
-                <TableColumn fx:id="memberId" prefWidth="144.0" text="Member ID" />
-                <TableColumn fx:id="checkoutMemberName" prefWidth="93.0" text="Member Name" />
+                <TableColumn fx:id="memberId" prefWidth="112.0" text="Member ID" />
+                <TableColumn fx:id="checkoutMemberName" prefWidth="119.0" text="Member Name" />
+            <TableColumn fx:id="isReturnedTC" prefWidth="99.0" text="Is Returned" />
             </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
         </TableView>
         <Button layoutX="452.0" layoutY="122.0" mnemonicParsing="false" onAction="#checkout" prefHeight="26.0" prefWidth="193.0" text="Checkout " />
         <TextField fx:id="txtISBN" layoutX="94.0" layoutY="122.0" prefHeight="26.0" prefWidth="330.0" promptText="ISBN" />

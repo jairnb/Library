@@ -8,12 +8,21 @@ public class Checkout {
     private LocalDate checkoutDate;
     private Book book;
     private Member member;
+    private boolean isReturned;
 
     public Checkout(LocalDate dueDate, LocalDate checkoutDate, Book book, Member member) {
         this.dueDate = dueDate;
         this.checkoutDate = checkoutDate;
         this.book = book;
         this.member = member;
+    }
+
+    public boolean isReturned() {
+        return isReturned;
+    }
+
+    public void setReturned(boolean returned) {
+        isReturned = returned;
     }
 
     public int getId() {
