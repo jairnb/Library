@@ -169,13 +169,21 @@ public class AddBookController implements Initializable {
                     return;
                 }
 
-                BookService.addBook(new Book(
+                if(BookService.getByISBN(isbnTextField.getText()) != null){
+                    alert.setContentText("ISBN is occupied");
+                    alert.showAndWait();
+                    return;
+                }
+
+                Book book = new Book(
                         titleTextField.getText(),
                         isbnTextField.getText(),
                         "",
                         maxDateSelect != null ? maxDateSelect : "",
                         authorList
-                ));
+                );
+
+                BookService.addBook(book);
                 dialogStage.close();
             }
         });

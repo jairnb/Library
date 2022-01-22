@@ -12,21 +12,14 @@
             fx:controller="com.example.library.controller.MemberListController"
             prefHeight="400.0" prefWidth="600.0">
 
-
     <children>
-        <Pane layoutX="3.0" layoutY="6.0" prefHeight="137.0" prefWidth="700.0">
+        <Pane layoutX="3.0" layoutY="6.0" prefHeight="41.0" prefWidth="665.0">
             <children>
-                <Button fx:id="checkOutEntriesButton" layoutX="311.0" layoutY="94.0" mnemonicParsing="false" text="Checkout entries" />
-                <Button fx:id="editButton" layoutX="557.0" layoutY="94.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Edit" />
-                <Button fx:id="addNewButton" layoutX="438.0" layoutY="94.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Add new" />
-                <Label layoutX="321.0" layoutY="10.0" text="Member" textAlignment="CENTER">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Label>
+                <Button fx:id="editButton" layoutX="570.0" layoutY="7.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" text="Edit" />
+                <Button fx:id="addNewButton" layoutX="472.0" layoutY="7.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" text="Add new" />
             </children>
         </Pane>
-        <TableView fx:id="memberGrid" layoutX="3.0" layoutY="143.0" prefHeight="285.0" prefWidth="658.0">
+        <TableView fx:id="memberGrid" layoutX="7.0" layoutY="57.0" prefHeight="251.0" prefWidth="658.0">
             <columns>
                 <TableColumn fx:id="memberId" minWidth="1.33331298828125" prefWidth="54.6666579246521" text="memberId" visible="false" />
                 <TableColumn fx:id="chkSelect" prefWidth="57.33333969116211" text="Select" visible="false" />

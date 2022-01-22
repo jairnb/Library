@@ -34,6 +34,7 @@ public class BookController implements Initializable {
     }
 
     public void loadTable(){
+        bookTable.setEditable(true);
         title.setCellValueFactory(new PropertyValueFactory<>("title"));
         isbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         availability.setCellValueFactory(new PropertyValueFactory<>("numberAvailable"));

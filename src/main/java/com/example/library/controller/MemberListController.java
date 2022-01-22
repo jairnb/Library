@@ -50,6 +50,7 @@ public class MemberListController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)  {
         try {
+
             init();
             onAddNew();
             onEdit();
@@ -59,6 +60,7 @@ public class MemberListController implements Initializable {
     }
 
     public void init() throws Exception {
+
         memberId.setCellValueFactory(new PropertyValueFactory<>("memberId"));
         firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));

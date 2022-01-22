@@ -33,6 +33,8 @@ public class BookDAO {
                 }
             }
 
+            updateCopyNumber(bookId,1);
+
             for(Author author : book.getAuthor()){
                 int authorId = AuthorDAO.addAuthor(author);
                 String book_authorQuery = "insert into book_author(book_id,author_id) values(?,?)";

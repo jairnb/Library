@@ -220,7 +220,9 @@ public class MemberController implements Initializable {
     private Boolean validateUser() throws Exception {
         String roleSelect = role.getSelectionModel().getSelectedItem();
 
-        if(roleSelect != null && (roleSelect.equals(RoleType.ADMIN.toString()) || roleSelect.equals(RoleType.LIBRARIAN.toString()))){
+        if(roleSelect != null && (roleSelect.equals(RoleType.BOTH.toString())
+                || roleSelect.equals(RoleType.ADMIN.toString())
+                || roleSelect.equals(RoleType.LIBRARIAN.toString()))){
             Alert alert = new Alert(Alert.AlertType.WARNING);
 
             if(passwordField.getText().equals("")){
