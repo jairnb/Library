@@ -22,10 +22,10 @@
             <TableColumn fx:id="isReturnedTC" prefWidth="99.0" text="Is Returned" />
             </columns>
         </TableView>
-        <Button layoutX="452.0" layoutY="122.0" mnemonicParsing="false" onAction="#checkout" prefHeight="26.0" prefWidth="193.0" text="Checkout " />
-        <TextField fx:id="txtISBN" layoutX="94.0" layoutY="122.0" prefHeight="26.0" prefWidth="330.0" promptText="ISBN" />
-        <TextField fx:id="txtMemberId" layoutX="94.0" layoutY="79.0" prefHeight="26.0" prefWidth="330.0" promptText="MemberID" />
-        <Text layoutX="275.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout form">
+        <Button layoutX="432.0" layoutY="102.0" mnemonicParsing="false" onAction="#checkout" prefHeight="26.0" prefWidth="193.0" text="Checkout " />
+        <TextField fx:id="txtISBN" layoutX="74.0" layoutY="102.0" prefHeight="26.0" prefWidth="330.0" promptText="ISBN" />
+        <TextField fx:id="txtMemberId" layoutX="74.0" layoutY="59.0" prefHeight="26.0" prefWidth="330.0" promptText="MemberID" />
+        <Text layoutX="255.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout form">
             <font>
                 <Font size="16.0" />
             </font>
@@ -35,6 +35,7 @@
             <Font size="15.0" />
          </font>
       </Label>
+      <Button layoutX="563.0" layoutY="141.0" mnemonicParsing="false" onAction="#overdue" text="Overdue" />
     </children>
 
 </AnchorPane>

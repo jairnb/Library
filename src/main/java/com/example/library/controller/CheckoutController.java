@@ -60,6 +60,19 @@ public class CheckoutController implements Initializable {
         }
     }
 
+    public void overdue(){
+        CbookTitle.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBook().getTitle()));
+        CcheckoutDate.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCheckoutDate().toString()));
+        CdueDate.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDueDate().toString()));
+        memberId.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMember().getUserId()));
+        checkoutMemberName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMember().getFirstName()));
+        isReturnedTC.setCellValueFactory(cellData -> new SimpleStringProperty(
+                (cellData.getValue().isReturned()) ? "True" : "False"
+        ));
+
+        checkoutsObservableList = FXCollections.observableArrayList(CheckoutDAO.selectOverdue());
+        checkoutTable.setItems(checkoutsObservableList);
+    }
     private boolean validateEmptyFields(){
         if (txtMemberId.getText() == "" || txtISBN.getText() == "") return false;
         return true;

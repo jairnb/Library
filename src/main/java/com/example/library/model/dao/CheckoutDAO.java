@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -123,5 +124,28 @@ public class CheckoutDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static List<Checkout> selectOverdue(){
+        List<Checkout> checkList = new ArrayList<>();
+        String sql = "SELECT * FROM checkout_entriers WHERE due_date<=? and is_returned=? ORDER BY due_date DESC";
+
+        try {
+            PreparedStatement stmt = StaticHelpers.connection.prepareStatement(sql);
+            stmt.setDate(1, Date.valueOf(LocalDate.now()));
+            stmt.setBoolean(2, false);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Checkout c = new Checkout(rs.getDate(2).toLocalDate(), rs.getDate(3).toLocalDate(), BookService.getById(rs.getInt(4)), MemberService.getStaticMemberById(rs.getInt(5)));
+                c.setId(rs.getInt(1));
+                c.setReturned(rs.getBoolean(6));
+                checkList.add(c);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return checkList;
     }
 }
